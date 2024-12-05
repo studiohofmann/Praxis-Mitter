@@ -53,7 +53,7 @@ export default function Navigation() {
                 {/* Logo with click handler */}
                 <Link
                     href="/"
-                    className='z-30'
+                    className='z-30 font-bold'
                     onClick={() => setIsMobileMenuOpen(false)}
                 >
                     Praxis Mitter
