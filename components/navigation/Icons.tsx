@@ -1,14 +1,27 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
-import {
-    PhoneFilled,
-    MailFilled,
-    WhatsAppOutlined,
-    InstagramFilled
-} from "@ant-design/icons/lib/icons"
 import { client } from '@/sanity/lib/client'
 import { ICONS_QUERY } from '@/sanity/lib/queries'
+
+// Dynamically import icons with loading state
+const PhoneFilled = dynamic(() => import('@ant-design/icons/PhoneFilled'), {
+    loading: () => <div>Loading...</div>,
+    ssr: false
+})
+const MailFilled = dynamic(() => import('@ant-design/icons/MailFilled'), {
+    loading: () => <div>Loading...</div>,
+    ssr: false
+})
+const WhatsAppOutlined = dynamic(() => import('@ant-design/icons/WhatsAppOutlined'), {
+    loading: () => <div>Loading...</div>,
+    ssr: false
+})
+const InstagramFilled = dynamic(() => import('@ant-design/icons/InstagramFilled'), {
+    loading: () => <div>Loading...</div>,
+    ssr: false
+})
 
 interface IconData {
     name: string
@@ -70,7 +83,6 @@ export default function Icons() {
                     >
                         {config.icon}
                     </a>
-
                 )
             })}
         </div>
