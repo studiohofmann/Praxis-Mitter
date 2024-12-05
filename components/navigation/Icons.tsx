@@ -1,27 +1,14 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { client } from '@/sanity/lib/client'
 import { ICONS_QUERY } from '@/sanity/lib/queries'
-
-// Dynamically import icons with loading state
-const PhoneFilled = dynamic(() => import('@ant-design/icons/PhoneFilled'), {
-    loading: () => <div>Loading...</div>,
-    ssr: false
-})
-const MailFilled = dynamic(() => import('@ant-design/icons/MailFilled'), {
-    loading: () => <div>Loading...</div>,
-    ssr: false
-})
-const WhatsAppOutlined = dynamic(() => import('@ant-design/icons/WhatsAppOutlined'), {
-    loading: () => <div>Loading...</div>,
-    ssr: false
-})
-const InstagramFilled = dynamic(() => import('@ant-design/icons/InstagramFilled'), {
-    loading: () => <div>Loading...</div>,
-    ssr: false
-})
+import {
+    PhoneFilled,
+    MailFilled,
+    WhatsAppOutlined,
+    InstagramFilled
+} from '@ant-design/icons'
 
 interface IconData {
     name: string
@@ -31,17 +18,23 @@ interface IconData {
 export default function Icons() {
     const [icons, setIcons] = useState<IconData[]>([])
     const [isLoading, setIsLoading] = useState(true)
+    const [fetchError, setFetchError] = useState<null | string>(null)
 
     useEffect(() => {
         const fetchIcons = async () => {
             try {
                 const data = await client.fetch(ICONS_QUERY)
-                console.log('Fetched icons:', data) // Debug log
+                console.log('Fetched icons:', data)
+                if (!data || data.length === 0) {
+                    throw new Error('No icons data fetched')
+                }
                 setIcons(data)
             } catch (error) {
-                console.error('Error:', error)
+                console.error('Error fetching icons:', error)
+                setFetchError((error as Error).message)
+            } finally {
+                setIsLoading(false)
             }
-            setIsLoading(false)
         }
         fetchIcons()
     }, [])
@@ -65,13 +58,14 @@ export default function Icons() {
         }
     }
 
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading) return <div>Loading icons...</div>
+    if (fetchError) return <div>Error: {fetchError}</div>
 
     return (
         <div className="flex gap-4 items-center">
             {icons.map((icon) => {
                 const iconName = icon.name.toLowerCase()
-                console.log('Processing icon:', iconName) // Debug log
+                console.log('Processing icon:', iconName)
                 const config = iconConfig[iconName as keyof typeof iconConfig]
                 if (!config) return null
 

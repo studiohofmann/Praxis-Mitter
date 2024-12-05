@@ -2,9 +2,17 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { client } from '@/sanity/lib/client'
+import { createClient } from '@sanity/client'
 import { SEITEN_QUERY } from '@/sanity/lib/queries'
 import { Seiten } from '@/sanity.types'
+
+// Create client instance inside component to ensure env vars are available
+const client = createClient({
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+    apiVersion: '2024-01-01',
+    useCdn: true,
+})
 
 interface HyperlinksProps {
     onLinkClick?: () => void;
@@ -13,14 +21,19 @@ interface HyperlinksProps {
 export default function Hyperlinks({ onLinkClick }: HyperlinksProps) {
     const [seiten, setSeiten] = useState<Seiten[]>([])
     const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
         const fetchSeiten = async () => {
             try {
+                console.log('Fetching seiten...') // Debug log
                 const data = await client.fetch(SEITEN_QUERY)
+                console.log('Fetched data:', data) // Debug log
+                if (!data) throw new Error('No data received')
                 setSeiten(data)
             } catch (error) {
                 console.error('Error fetching seiten:', error)
+                setError((error as Error).message)
             } finally {
                 setIsLoading(false)
             }
@@ -29,11 +42,8 @@ export default function Hyperlinks({ onLinkClick }: HyperlinksProps) {
         fetchSeiten()
     }, [])
 
-    if (isLoading) return (
-        <div className="flex justify-center items-center p-4">
-            <div className="animate-spin">Loading...</div>
-        </div>
-    )
+    if (error) return <div>Error: {error}</div>
+    if (isLoading) return <div className="animate-spin">Loading...</div>
 
     return (
         <nav className="p-4">
