@@ -41,6 +41,7 @@ export default function Hyperlinks({ onLinkClick }: HyperlinksProps) {
         <nav className="p-4">
             TEST MENU
             <ul className="space-y-4 md:space-y-0 md:flex md:space-x-6 justify-end">
+                Hello Hello
                 {seiten.map((seite) => (
                     <li key={seite.slug?.current}>
                         <Link
@@ -53,6 +54,7 @@ export default function Hyperlinks({ onLinkClick }: HyperlinksProps) {
                     </li>
                 ))}
             </ul>
+            Hello Hello Hello
         </nav>
     )
 }
