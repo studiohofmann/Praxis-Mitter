@@ -68,7 +68,7 @@ export default function Icons() {
 
     return (
         <div className="flex gap-4 items-center">
-            ICONS
+            <PhoneFilled className="text-2xl" />
             {icons.map((icon) => {
                 const iconName = icon.name.toLowerCase()
                 const config = iconConfig[iconName as keyof typeof iconConfig]
