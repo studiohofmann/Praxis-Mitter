@@ -31,19 +31,22 @@ export default async function Startbild() {
     if (!data?.startbild?.bild) return null
 
     return (
-        <div className="relative w-full h-[50vh]">
-            <Image
-                src={urlFor(data.startbild.bild).url()}
-                alt={data.startbild.bild.alt || "Startbild"}
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw,
+        <div className="relative w-full h-[50vh] aspect-[4/3] md:aspect-[16/9]">
+            <div className='relative flex items-center justify-center h-full w-full'>
+                <Image
+                    src={urlFor(data.startbild.bild).url()}
+                    alt={data.startbild.bild.alt || "Startbild"}
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw,
                        (max-width: 1200px) 100vw,
                        100vw"
-            />
+                />
+                <div className='absolute inset-0 bg-black/20' /> {/* Overlay div */}
+            </div>
             {data.homeData && (
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute px-8 inset-0 flex items-center justify-center">
                     <h1 className="text-white text-4xl">{data.homeData.ueberschrift}</h1>
                 </div>
             )}

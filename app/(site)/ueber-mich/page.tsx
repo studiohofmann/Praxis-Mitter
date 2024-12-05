@@ -20,9 +20,10 @@ export default async function UeberMich() {
     return (
         <div>
             <Uebermichbild />
-            <h1>{ueberMichData.titel}</h1>
-            <h2>{ueberMichData.ueberschrift}</h2>
-            <PortableText value={ueberMichData.text} />
+            <section>
+                <h2>{ueberMichData.ueberschrift}</h2>
+                <PortableText value={ueberMichData.text} />
+            </section>
         </div>
     );
 }

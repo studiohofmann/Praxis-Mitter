@@ -21,11 +21,15 @@ export default async function Kontakt() {
 
     return (
         <div>
-            <h1>{kontaktData.titel}</h1>
-            <h2>{kontaktData.ueberschrift}</h2>
-            <PortableText value={kontaktData.text} />
-            <Kontaktforumlar />
-            <Anfahrt />
+            <section>
+                <h2>{kontaktData.ueberschrift}</h2>
+                <PortableText value={kontaktData.text} />
+                <Kontaktforumlar />
+            </section>
+            <section className='bg-red-300'>
+                <Anfahrt />
+            </section>
         </div>
+
     );
 }

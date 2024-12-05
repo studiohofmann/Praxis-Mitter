@@ -21,9 +21,9 @@ export default async function Anfahrt() {
     if (!anfahrtData) return null
 
     return (
-        <div className="max-w-4xl mx-auto p-6">
-            <h2 className="text-3xl font-bold mb-6">{anfahrtData.ueberschrift}</h2>
-            <div className="prose max-w-none">
+        <div className='flex flex-col gap-8'>
+            <h2>{anfahrtData.ueberschrift}</h2>
+            <div>
                 {anfahrtData.text && <PortableText value={anfahrtData.text} />}
             </div>
             <Map />

@@ -21,14 +21,14 @@ export default async function Leistungen() {
     if (!leistungenData) return null
 
     return (
-        <div className="max-w-4xl mx-auto p-6">
-            <h2 className="text-3xl font-bold mb-6">
+        <section>
+            <h2>
                 {leistungenData.ueberschrift}
             </h2>
             <div className="prose max-w-none">
                 {leistungenData.text && <PortableText value={leistungenData.text} />}
             </div>
             <Leistung />
-        </div>
+        </section>
     )
 }

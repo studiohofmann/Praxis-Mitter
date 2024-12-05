@@ -22,7 +22,9 @@ export default async function Home() {
   return (
     <div>
       <Startbild />
-      <PortableText value={homeData.text} />
+      <section>
+        <PortableText value={homeData.text} />
+      </section>
       <Termin />
       <Leistungen />
     </div>

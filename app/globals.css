@@ -1,3 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply bg-green-100;
+    @apply text-green-950;
+}
+
+h2 {
+    @apply text-2xl;
+    @apply font-bold;
+    @apply tracking-wide;
+
+}
+
+section {
+    @apply px-8;
+    @apply pt-24;
+    @apply pb-16;
+    @apply flex;
+    @apply flex-col;
+    @apply gap-8;
+}
+
+a {
+    @apply text-green-700;
+    @apply hover:text-green-500;
+}
+
+button,
+.mobile-hyperlink-class {
+    @apply bg-gradient-to-tr from-green-500 to-yellow-500;
+    @apply text-green-700;
+    @apply w-full;
+    @apply py-2;
+    @apply px-4;
+    @apply flex;
+    @apply gap-4;
+    @apply items-center;
+    @apply justify-center;
+    @apply outline-none;
+}
+
+.mobile-hyperlink-container-class {
+    @apply w-full;
+    @apply px-8;
+    @apply flex;
+    @apply flex-col;
+    @apply gap-8;
+}
+
+.inputcontainer {
+    @apply flex;
+    @apply flex-col;
+    @apply gap-2;
+}
+
+input,
+select,
+textarea {
+    @apply bg-yellow-100;
+    @apply py-2;
+    @apply px-4;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    @apply bg-yellow-50;
+    @apply outline-none;
+    @apply ring-2;
+    @apply ring-yellow-400;
+    @apply rounded-none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    @apply text-yellow-300;
+}

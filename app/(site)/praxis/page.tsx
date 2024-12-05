@@ -18,11 +18,10 @@ export default async function Praxis() {
     }
 
     return (
-        <div>
-            <h1>{praxisData.titel}</h1>
+        <section>
             <h2>{praxisData.ueberschrift}</h2>
             <PortableText value={praxisData.text} />
             <Praxisgalerie />
-        </div>
+        </section>
     );
 }

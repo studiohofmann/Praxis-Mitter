@@ -44,7 +44,7 @@ export default function Map({
     }
 
     return (
-        <div className="w-full h-[400px] rounded-lg overflow-hidden">
+        <div className="overflow-hidden">
             <LoadScript
                 googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}
                 onError={(err) => setLoadError(err)}

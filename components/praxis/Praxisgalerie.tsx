@@ -21,14 +21,14 @@ export default async function Praxisgalerie() {
     if (!galleryData?.length) return null
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        <div className='flex flex-col gap-4'>
             {galleryData.map((item, index) => (
-                <div key={index} className="relative aspect-square">
+                <div key={index} className="relative aspect-[4/3] md:aspect-[16/9]">
                     <Image
                         src={item.bild ? urlFor(item.bild).url() : ''}
                         alt={item.bild?.alt || `Praxis Bild ${index + 1}`}
                         fill
-                        className="object-cover rounded-lg hover:opacity-90 transition-opacity"
+                        className="object-cover"
                         sizes="(max-width: 768px) 100vw,
                                (max-width: 1200px) 50vw,
                                33vw"

@@ -8,9 +8,10 @@ import { Seiten } from '@/sanity.types'
 
 interface HyperlinksProps {
     onLinkClick?: () => void;
+    variant?: 'mobile' | 'default';
 }
 
-export default function Hyperlinks({ onLinkClick }: HyperlinksProps) {
+export default function Hyperlinks({ onLinkClick, variant = 'default' }: HyperlinksProps) {
     const [seiten, setSeiten] = useState<Seiten[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
@@ -35,23 +36,22 @@ export default function Hyperlinks({ onLinkClick }: HyperlinksProps) {
     }, [])
 
     if (error) return <div>Error: {error}</div>
-    if (isLoading) return <div className="animate-spin">Loading...</div>
+    if (isLoading) return <div>Loading...</div>
 
     return (
-        <nav className="p-4">
-            <ul className="space-y-4 md:space-y-0 md:flex md:space-x-6 justify-end">
-                {seiten.map((seite) => (
-                    <li key={seite.slug?.current}>
-                        <Link
-                            href={`/${seite.slug?.current}`}
-                            onClick={onLinkClick}
-                            className="text-gray-800 hover:text-blue-600 transition-colors duration-200 block py-2"
-                        >
-                            {seite.titel}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+        <nav className={variant === 'mobile' ? 'mobile-hyperlink-container-class' : 'a'}>
+            {seiten.map((seite) => (
+                <div key={seite.slug?.current}>
+                    <Link
+                        href={`/${seite.slug?.current}`}
+                        onClick={onLinkClick}
+                        className={variant === 'mobile' ? 'mobile-hyperlink-class' : 'a'}
+                    >
+                        {seite.titel}
+                    </Link>
+                </div>
+            ))}
+
         </nav>
     )
 }

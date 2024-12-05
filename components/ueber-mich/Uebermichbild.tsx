@@ -21,13 +21,13 @@ export default async function Uebermichbild() {
     if (!data?.bild) return null
 
     return (
-        <div className="relative w-full aspect-[4/3] md:aspect-[16/9]">
+        <div className="relative w-full aspect-[4/3] md:aspect-[16/9] h-[50vh]">
             <Image
                 src={urlFor(data.bild).url()}
                 alt={data.bild.alt || "Über mich"}
                 fill
                 priority
-                className="object-cover rounded-lg"
+                className="object-cover"
                 sizes="(max-width: 768px) 100vw,
                        (max-width: 1200px) 80vw,
                        70vw"

@@ -41,28 +41,28 @@ export default function Icons() {
 
     const iconConfig = {
         anruf: {
-            icon: <PhoneFilled className="text-2xl" />,
+            icon: <PhoneFilled className="text-xl" />,
             href: (wert: string) => `tel:${wert}`
         },
         email: {
-            icon: <MailFilled className="text-2xl" />,
+            icon: <MailFilled className="text-xl" />,
             href: (wert: string) => `mailto:${wert}`
         },
         whatsapp: {
-            icon: <WhatsAppOutlined className="text-2xl" />,
+            icon: <WhatsAppOutlined className="text-xl" />,
             href: (wert: string) => `https://wa.me/+${wert}`
         },
         instagram: {
-            icon: <InstagramFilled className="text-2xl" />,
+            icon: <InstagramFilled className="text-xl" />,
             href: (wert: string) => `https://www.instagram.com/${wert}`
         }
     }
 
-    if (isLoading) return <div>Loading icons...</div>
+    if (isLoading) return <div>Loading...</div>
     if (fetchError) return <div>Error: {fetchError}</div>
 
     return (
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4">
             {icons.map((icon) => {
                 const iconName = icon.name.toLowerCase()
                 console.log('Processing icon:', iconName)
@@ -75,7 +75,6 @@ export default function Icons() {
                         href={config.href(icon.wert)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-blue-600 transition-colors"
                     >
                         {config.icon}
                     </a>

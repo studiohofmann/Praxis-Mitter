@@ -20,13 +20,13 @@ export default async function Impressuminfo() {
     if (!impressumData) return null
 
     return (
-        <div className="max-w-4xl mx-auto p-6 space-y-8">
+        <section className='bg-yellow-200'>
             {impressumData.map((item, index) => (
-                <div key={index} className="prose max-w-none">
-                    <h2 className="text-2xl font-bold mb-4">{item.ueberschrift}</h2>
+                <div key={index}>
+                    <h2>{item.ueberschrift}</h2>
                     {item.text && <PortableText value={item.text} />}
                 </div>
             ))}
-        </div>
+        </section>
     )
 }

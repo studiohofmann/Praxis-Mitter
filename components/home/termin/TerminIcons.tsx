@@ -46,24 +46,27 @@ export default function TerminIcons() {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <div className="flex gap-4 items-center">
-            {icons.map((icon) => {
-                const config = iconConfig[icon.name.toLowerCase() as keyof typeof iconConfig]
-                if (!config) return null
+        <div className="flex justify-end w-full">
+            <div className="flex flex-col gap-4 w-2/3">
+                {icons.map((icon) => {
+                    const config = iconConfig[icon.name.toLowerCase() as keyof typeof iconConfig]
+                    if (!config) return null
 
-                return (
-                    <a
-                        key={icon.name}
-                        href={config.href(icon.wert)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 hover:text-blue-600 transition-colors"
-                    >
-                        {config.icon}
-                        <span className="text-sm">{icon.name}</span>
-                    </a>
-                )
-            })}
+                    return (
+                        <a
+                            key={icon.name}
+                            href={config.href(icon.wert)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <button>
+                                {config.icon}
+                                <span>{icon.name}</span>
+                            </button>
+                        </a>
+                    )
+                })}
+            </div>
         </div>
     )
 }
