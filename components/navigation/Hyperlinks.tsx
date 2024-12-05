@@ -2,17 +2,9 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { createClient } from '@sanity/client'
+import { client } from '@/sanity/lib/client'
 import { SEITEN_QUERY } from '@/sanity/lib/queries'
 import { Seiten } from '@/sanity.types'
-
-// Create client instance inside component to ensure env vars are available
-const client = createClient({
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-    apiVersion: '2024-01-01',
-    useCdn: true,
-})
 
 interface HyperlinksProps {
     onLinkClick?: () => void;
