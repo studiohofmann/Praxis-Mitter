@@ -10,32 +10,34 @@ export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     return (
-        <header className="fixed w-full top-0 h-20 bg-red-300 z-10">
-            <div className='flex justify-between'>
+        <header className="fixed w-full top-0 h-20 bg-red-300 z-50">
+            <div className='flex justify-between items-center px-4 h-full'>
                 {/* Logo */}
-                <Link href="/">
+                <Link href="/" className="z-20">
                     LOGO
                 </Link>
 
-                {/* Icons */}
-                <Icons />
+                <div className="flex items-center gap-4 z-20">
+                    {/* Icons */}
+                    <Icons />
 
-                {/* Desktop Menu */}
-                <div className="hidden md:block">
-                    <Hyperlinks />
+                    {/* Desktop Menu */}
+                    <div className="hidden md:block">
+                        <Hyperlinks />
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="md:hidden"
+                    >
+                        {isMobileMenuOpen ? (
+                            <CloseOutlined className="text-2xl transition-all duration-300" />
+                        ) : (
+                            <MenuOutlined className="text-2xl transition-all duration-300" />
+                        )}
+                    </button>
                 </div>
-
-                {/* Mobile Menu Button */}
-                <button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="md:hidden"
-                >
-                    {isMobileMenuOpen ? (
-                        <CloseOutlined className="text-2xl transition-all duration-300" />
-                    ) : (
-                        <MenuOutlined className="text-2xl transition-all duration-300" />
-                    )}
-                </button>
             </div>
 
             {/* Mobile Menu */}
@@ -44,7 +46,7 @@ export default function Navigation() {
                 bg-red-200 shadow-lg transition-opacity duration-300 ease-in-out
                 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
             `}>
-                <div className="pt-16">
+                <div className="pt-20">
                     <Hyperlinks onLinkClick={() => setIsMobileMenuOpen(false)} />
                 </div>
             </div>
