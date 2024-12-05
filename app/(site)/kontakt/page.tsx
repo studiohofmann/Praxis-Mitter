@@ -3,6 +3,8 @@ import { client } from '@/sanity/lib/client';
 import { SEITEN_QUERY } from '@/sanity/lib/queries';
 import { Seiten } from '@/sanity.types';
 import { PortableText } from '@portabletext/react';
+import Kontaktforumlar from '@/components/kontakt/Kontaktformular';
+import Anfahrt from '@/components/kontakt/Anfahrt';
 
 async function getData() {
     const allData = await client.fetch(SEITEN_QUERY);
@@ -22,6 +24,8 @@ export default async function Kontakt() {
             <h1>{kontaktData.titel}</h1>
             <h2>{kontaktData.ueberschrift}</h2>
             <PortableText value={kontaktData.text} />
+            <Kontaktforumlar />
+            <Anfahrt />
         </div>
     );
 }

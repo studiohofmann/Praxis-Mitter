@@ -68,6 +68,198 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Impressuminfo = {
+  _id: string;
+  _type: "impressuminfo";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  titel?: string;
+  ueberschrift?: string;
+  text?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Anfahrt = {
+  _id: string;
+  _type: "anfahrt";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  titel?: string;
+  ueberschrift?: string;
+  text?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Icons = {
+  _id: string;
+  _type: "icons";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  wert?: string;
+};
+
+export type Praxisgalerie = {
+  _id: string;
+  _type: "praxisgalerie";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  titel?: string;
+  bild?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type Uebermichbild = {
+  _id: string;
+  _type: "uebermichbild";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  titel?: string;
+  bild?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type Leistung = {
+  _id: string;
+  _type: "leistung";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  titel?: string;
+  ueberschrift?: string;
+  text?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Leistungen = {
+  _id: string;
+  _type: "leistungen";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  titel?: string;
+  ueberschrift?: string;
+  text?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Termin = {
+  _id: string;
+  _type: "termin";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  titel?: string;
+  ueberschrift?: string;
+  text?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Startbild = {
   _id: string;
   _type: "startbild";
@@ -181,7 +373,7 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Startbild | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Seiten | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Impressuminfo | Anfahrt | Icons | Praxisgalerie | Uebermichbild | Leistung | Leistungen | Termin | Startbild | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Seiten | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: SEITEN_QUERY
@@ -225,6 +417,141 @@ export type STARTBILD_QUERYResult = Array<{
     _type: "image";
   } | null;
 }>;
+// Variable: ICONS_QUERY
+// Query: *[_type == "icons"] {name, wert}
+export type ICONS_QUERYResult = Array<{
+  name: string | null;
+  wert: string | null;
+}>;
+// Variable: TERMIN_QUERY
+// Query: *[_type == "termin"] {ueberschrift, text}
+export type TERMIN_QUERYResult = Array<{
+  ueberschrift: string | null;
+  text: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+}>;
+// Variable: UEBERMICHBILD_QUERY
+// Query: *[_type == "uebermichbild"] {bild}
+export type UEBERMICHBILD_QUERYResult = Array<{
+  bild: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+}>;
+// Variable: PRAXISGALERIE_QUERY
+// Query: *[_type == "praxisgalerie"] {bild}
+export type PRAXISGALERIE_QUERYResult = Array<{
+  bild: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+}>;
+// Variable: ANFAHRT_QUERY
+// Query: *[_type == "anfahrt"] {ueberschrift, text}
+export type ANFAHRT_QUERYResult = Array<{
+  ueberschrift: string | null;
+  text: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+}>;
+// Variable: IMPRESSUMINFO_QUERY
+// Query: *[_type == "impressuminfo"] {ueberschrift, text}
+export type IMPRESSUMINFO_QUERYResult = Array<{
+  ueberschrift: string | null;
+  text: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+}>;
+// Variable: LEISTUNGEN_QUERY
+// Query: *[_type == "leistungen"] {ueberschrift, text}
+export type LEISTUNGEN_QUERYResult = Array<{
+  ueberschrift: string | null;
+  text: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+}>;
+// Variable: LEISTUNG_QUERY
+// Query: *[_type == "leistung"] {ueberschrift}
+export type LEISTUNG_QUERYResult = Array<{
+  ueberschrift: string | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -232,5 +559,13 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"seiten\"] {titel, slug, ueberschrift, text}": SEITEN_QUERYResult;
     "*[_type == \"startbild\"] {bild}": STARTBILD_QUERYResult;
+    "*[_type == \"icons\"] {name, wert}": ICONS_QUERYResult;
+    "*[_type == \"termin\"] {ueberschrift, text}": TERMIN_QUERYResult;
+    "*[_type == \"uebermichbild\"] {bild}": UEBERMICHBILD_QUERYResult;
+    "*[_type == \"praxisgalerie\"] {bild}": PRAXISGALERIE_QUERYResult;
+    "*[_type == \"anfahrt\"] {ueberschrift, text}": ANFAHRT_QUERYResult;
+    "*[_type == \"impressuminfo\"] {ueberschrift, text}": IMPRESSUMINFO_QUERYResult;
+    "*[_type == \"leistungen\"] {ueberschrift, text}": LEISTUNGEN_QUERYResult;
+    "*[_type == \"leistung\"] {ueberschrift}": LEISTUNG_QUERYResult;
   }
 }

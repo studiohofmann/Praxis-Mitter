@@ -2,23 +2,39 @@
 import Image from 'next/image'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
-import { STARTBILD_QUERY } from '@/sanity/lib/queries'
+import { STARTBILD_QUERY, SEITEN_QUERY } from '@/sanity/lib/queries'
+import { Seiten } from '@/sanity.types'
 
 async function getData() {
-    const data = await client.fetch(STARTBILD_QUERY)
-    return data[0]
+    try {
+        // Fetch both queries concurrently
+        const [startbildData, seitenData] = await Promise.all([
+            client.fetch(STARTBILD_QUERY),
+            client.fetch(SEITEN_QUERY)
+        ])
+
+        const homeData = seitenData.find((item: Seiten) => item.slug?.current === "/")
+
+        return {
+            startbild: startbildData[0],
+            homeData
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error)
+        return null
+    }
 }
 
 export default async function Startbild() {
-    const startbild = await getData()
+    const data = await getData()
 
-    if (!startbild?.bild) return null
+    if (!data?.startbild?.bild) return null
 
     return (
-        <div className="relative w-full h-[50vh] md:h-[70vh] lg:h-[80vh]">
+        <div className="relative w-full h-[50vh]">
             <Image
-                src={urlFor(startbild.bild).url()}
-                alt="Startbild"
+                src={urlFor(data.startbild.bild).url()}
+                alt={data.startbild.bild.alt || "Startbild"}
                 fill
                 priority
                 className="object-cover"
@@ -26,6 +42,11 @@ export default async function Startbild() {
                        (max-width: 1200px) 100vw,
                        100vw"
             />
+            {data.homeData && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <h1 className="text-white text-4xl">{data.homeData.ueberschrift}</h1>
+                </div>
+            )}
         </div>
     )
 }

@@ -2,6 +2,7 @@ import { client } from '@/sanity/lib/client';
 import { SEITEN_QUERY } from '@/sanity/lib/queries';
 import { Seiten } from '@/sanity.types';
 import { PortableText } from '@portabletext/react';
+import Impressuminfo from '@/components/impressum/Impressuminfo';
 
 async function getData() {
     const allData = await client.fetch(SEITEN_QUERY);
@@ -18,6 +19,7 @@ export default async function Impressum() {
 
     return (
         <div>
+            <Impressuminfo />
             <h1>{impressumData.titel}</h1>
             <h2>{impressumData.ueberschrift}</h2>
             <PortableText value={impressumData.text} />

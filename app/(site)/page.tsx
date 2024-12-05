@@ -3,6 +3,8 @@ import { SEITEN_QUERY } from '@/sanity/lib/queries';
 import { Seiten } from '@/sanity.types';
 import { PortableText } from '@portabletext/react';
 import Startbild from '@/components/home/Startbild';
+import Termin from '@/components/home/termin/Termin';
+import Leistungen from '@/components/home/leistung/Leistungen';
 
 async function getData() {
   const allData = await client.fetch(SEITEN_QUERY);
@@ -20,9 +22,9 @@ export default async function Home() {
   return (
     <div>
       <Startbild />
-      <h1>{homeData.titel}</h1>
-      <h2>{homeData.ueberschrift}</h2>
       <PortableText value={homeData.text} />
+      <Termin />
+      <Leistungen />
     </div>
   );
 }

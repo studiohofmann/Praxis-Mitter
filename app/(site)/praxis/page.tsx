@@ -2,6 +2,7 @@ import { client } from '@/sanity/lib/client';
 import { SEITEN_QUERY } from '@/sanity/lib/queries';
 import { Seiten } from '@/sanity.types';
 import { PortableText } from '@portabletext/react';
+import Praxisgalerie from '@/components/praxis/Praxisgalerie';
 
 async function getData() {
     const allData = await client.fetch(SEITEN_QUERY);
@@ -21,6 +22,7 @@ export default async function Praxis() {
             <h1>{praxisData.titel}</h1>
             <h2>{praxisData.ueberschrift}</h2>
             <PortableText value={praxisData.text} />
+            <Praxisgalerie />
         </div>
     );
 }

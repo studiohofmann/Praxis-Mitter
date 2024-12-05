@@ -2,28 +2,41 @@
 
 import { useState } from 'react'
 import Hyperlinks from './Hyperlinks'
+import Icons from './Icons'
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
+import Link from 'next/link'
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     return (
-        <header className="fixed w-full top-0 bg-red-300">
-            {/* Desktop Menu */}
-            <div className="hidden md:block px-6 py-4">
-            </div>
+        <header className="fixed w-full top-0 h-20 bg-red-300 z-10">
+            <div className='flex justify-between'>
+                {/* Logo */}
+                <Link href="/">
+                    LOGO
+                </Link>
 
-            {/* Mobile Menu Button */}
-            <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden fixed top-4 right-4 z-50 p-2"
-            >
-                {isMobileMenuOpen ? (
-                    <CloseOutlined className="text-2xl transition-all duration-300" />
-                ) : (
-                    <MenuOutlined className="text-2xl transition-all duration-300" />
-                )}
-            </button>
+                {/* Icons */}
+                <Icons />
+
+                {/* Desktop Menu */}
+                <div className="hidden md:block">
+                    <Hyperlinks />
+                </div>
+
+                {/* Mobile Menu Button */}
+                <button
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    className="md:hidden"
+                >
+                    {isMobileMenuOpen ? (
+                        <CloseOutlined className="text-2xl transition-all duration-300" />
+                    ) : (
+                        <MenuOutlined className="text-2xl transition-all duration-300" />
+                    )}
+                </button>
+            </div>
 
             {/* Mobile Menu */}
             <div className={`
