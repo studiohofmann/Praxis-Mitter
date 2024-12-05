@@ -36,6 +36,7 @@ export default function Icons() {
         const fetchIcons = async () => {
             try {
                 const data = await client.fetch(ICONS_QUERY)
+                console.log('Fetched icons:', data) // Debug log
                 setIcons(data)
             } catch (error) {
                 console.error('Error:', error)
@@ -70,6 +71,7 @@ export default function Icons() {
         <div className="flex gap-4 items-center">
             {icons.map((icon) => {
                 const iconName = icon.name.toLowerCase()
+                console.log('Processing icon:', iconName) // Debug log
                 const config = iconConfig[iconName as keyof typeof iconConfig]
                 if (!config) return null
 
