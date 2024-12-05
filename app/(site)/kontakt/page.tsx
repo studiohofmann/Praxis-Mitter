@@ -20,13 +20,13 @@ export default async function Kontakt() {
     }
 
     return (
-        <div>
+        <div className='pt-16'>
             <section>
                 <h2>{kontaktData.ueberschrift}</h2>
                 <PortableText value={kontaktData.text} />
                 <Kontaktforumlar />
             </section>
-            <section className='bg-red-300'>
+            <section className='bg-green300'>
                 <Anfahrt />
             </section>
         </div>

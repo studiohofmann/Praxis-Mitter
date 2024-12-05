@@ -8,7 +8,6 @@ import Link from 'next/link'
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const [isScrolled, setIsScrolled] = useState(false)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
 
@@ -17,8 +16,6 @@ export default function Navigation() {
             const currentScrollPos = window.scrollY
 
             // Background opacity
-            setIsScrolled(currentScrollPos > 20)
-
             // Hide on scroll down, show on scroll up
             setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10)
             setPrevScrollPos(currentScrollPos)
@@ -49,7 +46,7 @@ export default function Navigation() {
         <header className={`
             fixed w-full top-0 h-16 transition-all duration-300 z-40
             ${visible ? 'translate-y-0' : '-translate-y-full'}
-            ${isScrolled ? 'bg-red-100/95 backdrop-blur-sm shadow-md' : 'bg-red-50/50'}
+            bg-green400
         `}>
             {/* Main Navigation Content */}
             <div className='flex justify-between items-center px-4 h-full z-50'>
@@ -59,7 +56,7 @@ export default function Navigation() {
                     className='z-30'
                     onClick={() => setIsMobileMenuOpen(false)}
                 >
-                    LOGO
+                    Praxis Mitter
                 </Link>
 
                 <div className="flex items-center gap-8 z-30">
@@ -77,9 +74,13 @@ export default function Navigation() {
                         className="md:hidden"
                     >
                         {isMobileMenuOpen ? (
-                            <CloseOutlined className="text-xl transition-all duration-300" />
+                            <a>
+                                <CloseOutlined className="a" />
+                            </a>
                         ) : (
-                            <MenuOutlined className="text-xl transition-all duration-300" />
+                            <a>
+                                <MenuOutlined className="a" />
+                            </a>
                         )}
                     </div>
                 </div>
@@ -88,7 +89,7 @@ export default function Navigation() {
             {/* Mobile Menu */}
             <div className={`
                 md:hidden fixed top-0 left-0 h-screen w-screen z-20
-                bg-red-200 shadow-lg transition-opacity duration-300 ease-in-out
+                bg-brown400 transition-opacity duration-300 ease-in-out
                 overflow-hidden
                 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
             `}>

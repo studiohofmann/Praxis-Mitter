@@ -5,7 +5,7 @@ export default async function Footer() {
 
 
     return (
-        <div className="bg-green-600 px-4 pt-24 pb-2">
+        <div className="bg-green400 px-4 pt-24 pb-2">
             <Icons />
             <Hyperlinks />
         </div>

@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 body {
-    @apply bg-green-100;
-    @apply text-green-950;
+    @apply bg-brown200;
+    @apply text-blue900;
+}
+
+h1 {
+    @apply text-4xl;
+    @apply font-extrabold;
+    @apply tracking-wide;
 }
 
 h2 {
@@ -12,6 +18,11 @@ h2 {
     @apply font-bold;
     @apply tracking-wide;
 
+}
+
+a {
+    @apply text-green200;
+    @apply hover:text-green50;
 }
 
 section {
@@ -23,15 +34,11 @@ section {
     @apply gap-8;
 }
 
-a {
-    @apply text-green-700;
-    @apply hover:text-green-500;
-}
-
 button,
 .mobile-hyperlink-class {
-    @apply bg-gradient-to-tr from-green-500 to-yellow-500;
-    @apply text-green-700;
+    @apply bg-green400;
+    @apply text-green200;
+    @apply hover:text-green100;
     @apply w-full;
     @apply py-2;
     @apply px-4;
@@ -59,7 +66,7 @@ button,
 input,
 select,
 textarea {
-    @apply bg-yellow-100;
+    @apply bg-green300;
     @apply py-2;
     @apply px-4;
 }
@@ -68,14 +75,14 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    @apply bg-yellow-50;
+    @apply bg-green200;
     @apply outline-none;
     @apply ring-2;
-    @apply ring-yellow-400;
+    @apply ring-green300;
     @apply rounded-none;
 }
 
 input::placeholder,
 textarea::placeholder {
-    @apply text-yellow-300;
+    @apply text-green100;
 }

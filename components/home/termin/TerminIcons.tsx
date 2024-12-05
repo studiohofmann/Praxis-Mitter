@@ -47,7 +47,7 @@ export default function TerminIcons() {
 
     return (
         <div className="flex justify-end w-full">
-            <div className="flex flex-col gap-4 w-2/3">
+            <div className="flex flex-col gap-8 w-2/3">
                 {icons.map((icon) => {
                     const config = iconConfig[icon.name.toLowerCase() as keyof typeof iconConfig]
                     if (!config) return null

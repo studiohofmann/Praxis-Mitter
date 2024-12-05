@@ -43,11 +43,13 @@ export default async function Startbild() {
                        (max-width: 1200px) 100vw,
                        100vw"
                 />
-                <div className='absolute inset-0 bg-black/20' /> {/* Overlay div */}
+                <div className='absolute inset-0 bg-green300 opacity-85' /> {/* Overlay div */}
             </div>
             {data.homeData && (
-                <div className="absolute px-8 inset-0 flex items-center justify-center">
-                    <h1 className="text-white text-4xl">{data.homeData.ueberschrift}</h1>
+                <div className="absolute inset-0 pt-16">
+                    <div className='flex text-green50 items-center justify-center h-full px-8'>
+                        <h1>{data.homeData.ueberschrift}</h1>
+                    </div>
                 </div>
             )}
         </div>

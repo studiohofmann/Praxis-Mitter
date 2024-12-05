@@ -1,6 +1,7 @@
 'use client'
 
 import { useForm, ValidationError } from "@formspree/react";
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 export default function Kontaktforumlar() {
     const [state, handleSubmit] = useForm("mbljqkev");
@@ -63,7 +64,10 @@ export default function Kontaktforumlar() {
                 />
                 <ValidationError prefix="Message" field="message" errors={state.errors} />
             </div>
-            <button type="submit" disabled={state.submitting}>Submit</button>
+            <button type="submit" disabled={state.submitting}>
+                Absenden
+                <ArrowRightOutlined />
+            </button>
             <ValidationError errors={state.errors} />
         </form>
     );

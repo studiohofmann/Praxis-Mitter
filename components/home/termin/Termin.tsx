@@ -20,7 +20,7 @@ export default async function Termin() {
     if (!terminData) return null
 
     return (
-        <section className='bg-blue-300'>
+        <section className='bg-green300'>
             <h2>{terminData.ueberschrift}</h2>
             <div>
                 <PortableText value={terminData.text || []} />

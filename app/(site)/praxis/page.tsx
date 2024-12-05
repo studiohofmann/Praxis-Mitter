@@ -18,10 +18,12 @@ export default async function Praxis() {
     }
 
     return (
-        <section>
-            <h2>{praxisData.ueberschrift}</h2>
-            <PortableText value={praxisData.text} />
-            <Praxisgalerie />
-        </section>
+        <div className='pt-16'>
+            <section>
+                <h2>{praxisData.ueberschrift}</h2>
+                <PortableText value={praxisData.text} />
+                <Praxisgalerie />
+            </section>
+        </div>
     );
 }

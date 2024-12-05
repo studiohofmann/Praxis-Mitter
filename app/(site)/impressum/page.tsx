@@ -18,7 +18,7 @@ export default async function Impressum() {
     }
 
     return (
-        <div>
+        <div className='pt-16'>
             <Impressuminfo />
             <section>
                 <h2>{impressumData.ueberschrift}</h2>

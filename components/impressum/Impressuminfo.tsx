@@ -20,7 +20,7 @@ export default async function Impressuminfo() {
     if (!impressumData) return null
 
     return (
-        <section className='bg-yellow-200'>
+        <section className='bg-green300'>
             {impressumData.map((item, index) => (
                 <div key={index}>
                     <h2>{item.ueberschrift}</h2>
