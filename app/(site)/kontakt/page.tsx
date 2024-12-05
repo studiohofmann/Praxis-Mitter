@@ -4,7 +4,7 @@ import { SEITEN_QUERY } from '@/sanity/lib/queries';
 import { Seiten } from '@/sanity.types';
 import { PortableText } from '@portabletext/react';
 import Kontaktforumlar from '@/components/kontakt/Kontaktformular';
-import Anfahrt from '@/components/kontakt/Anfahrt';
+import Anfahrt from '@/components/kontakt/anfahrt/Anfahrt';
 
 async function getData() {
     const allData = await client.fetch(SEITEN_QUERY);

@@ -1,7 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { PhoneFilled, MailFilled, WhatsAppOutlined, InstagramFilled } from "@ant-design/icons"
+import {
+    PhoneFilled,
+    MailFilled,
+    WhatsAppOutlined,
+    InstagramFilled
+} from "@ant-design/icons/lib/icons"
 import { client } from '@/sanity/lib/client'
 import { ICONS_QUERY } from '@/sanity/lib/queries'
 
@@ -51,7 +56,8 @@ export default function Icons() {
     return (
         <div className="flex gap-4 items-center">
             {icons.map((icon) => {
-                const config = iconConfig[icon.name.toLowerCase() as keyof typeof iconConfig]
+                const iconName = icon.name.toLowerCase()
+                const config = iconConfig[iconName as keyof typeof iconConfig]
                 if (!config) return null
 
                 return (
