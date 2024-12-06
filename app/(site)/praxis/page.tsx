@@ -10,6 +10,8 @@ async function getData() {
     return praxisData;
 }
 
+export const revalidate = 0; // Add this line to enable on-demand revalidation
+
 export default async function Praxis() {
     const praxisData = await getData();
 

@@ -12,6 +12,8 @@ async function getData() {
     return kontaktData;
 }
 
+export const revalidate = 0; // Add this line to enable on-demand revalidation
+
 export default async function Kontakt() {
     const kontaktData = await getData();
 

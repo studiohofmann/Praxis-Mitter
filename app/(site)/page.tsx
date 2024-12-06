@@ -12,6 +12,8 @@ async function getData() {
   return homeData;
 }
 
+export const revalidate = 0; // Add this line to enable on-demand revalidation
+
 export default async function Home() {
   const homeData = await getData();
 

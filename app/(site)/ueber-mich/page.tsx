@@ -10,6 +10,8 @@ async function getData() {
     return ueberMichData;
 }
 
+export const revalidate = 0; // Add this line to enable on-demand revalidation
+
 export default async function UeberMich() {
     const ueberMichData = await getData();
 
