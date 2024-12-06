@@ -75,11 +75,11 @@ export default function Navigation() {
                     >
                         {isMobileMenuOpen ? (
                             <a>
-                                <CloseOutlined className="a" />
+                                <CloseOutlined className="a text-xl" />
                             </a>
                         ) : (
                             <a>
-                                <MenuOutlined className="a" />
+                                <MenuOutlined className="a text-xl" />
                             </a>
                         )}
                     </div>

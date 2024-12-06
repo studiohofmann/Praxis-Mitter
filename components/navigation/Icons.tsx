@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react'
 import { client } from '@/sanity/lib/client'
 import { ICONS_QUERY } from '@/sanity/lib/queries'
 import {
-    PhoneFilled,
-    MailFilled,
+    PhoneOutlined,
+    MailOutlined,
     WhatsAppOutlined,
-    InstagramFilled
+    InstagramOutlined
 } from '@ant-design/icons'
 
 interface IconData {
@@ -41,11 +41,11 @@ export default function Icons() {
 
     const iconConfig = {
         anruf: {
-            icon: <PhoneFilled className="text-xl" />,
+            icon: <PhoneOutlined className="text-xl" />,
             href: (wert: string) => `tel:${wert}`
         },
         email: {
-            icon: <MailFilled className="text-xl" />,
+            icon: <MailOutlined className="text-xl" />,
             href: (wert: string) => `mailto:${wert}`
         },
         whatsapp: {
@@ -53,7 +53,7 @@ export default function Icons() {
             href: (wert: string) => `https://wa.me/+${wert}`
         },
         instagram: {
-            icon: <InstagramFilled className="text-xl" />,
+            icon: <InstagramOutlined className="text-xl" />,
             href: (wert: string) => `https://www.instagram.com/${wert}`
         }
     }

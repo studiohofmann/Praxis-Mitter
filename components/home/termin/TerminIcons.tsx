@@ -29,15 +29,15 @@ export default function TerminIcons() {
 
     const iconConfig = {
         anruf: {
-            icon: <PhoneFilled className="text-2xl" />,
+            icon: <PhoneFilled className="text-xl" />,
             href: (wert: string) => `tel:${wert}`
         },
         email: {
-            icon: <MailFilled className="text-2xl" />,
+            icon: <MailFilled className="text-xl" />,
             href: (wert: string) => `mailto:${wert}`
         },
         whatsapp: {
-            icon: <WhatsAppOutlined className="text-2xl" />,
+            icon: <WhatsAppOutlined className="text-xl" />,
             href: (wert: string) => `https://wa.me/+${wert}`
         },
 
