@@ -142,6 +142,7 @@ export type Praxisgalerie = {
   _updatedAt: string;
   _rev: string;
   titel?: string;
+  reihenfolge?: string;
   bild?: {
     asset?: {
       _ref: string;
@@ -473,7 +474,7 @@ export type UEBERMICHBILD_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: PRAXISGALERIE_QUERY
-// Query: *[_type == "praxisgalerie"] {bild}
+// Query: *[_type == "praxisgalerie"] | order(reihenfolge) {bild}
 export type PRAXISGALERIE_QUERYResult = Array<{
   bild: {
     asset?: {
@@ -574,7 +575,7 @@ declare module "@sanity/client" {
     "*[_type == \"icons\"] | order(reihenfolge) {name, wert}": ICONS_QUERYResult;
     "*[_type == \"termin\"] {ueberschrift, text}": TERMIN_QUERYResult;
     "*[_type == \"uebermichbild\"] {bild}": UEBERMICHBILD_QUERYResult;
-    "*[_type == \"praxisgalerie\"] {bild}": PRAXISGALERIE_QUERYResult;
+    "*[_type == \"praxisgalerie\"] | order(reihenfolge) {bild}": PRAXISGALERIE_QUERYResult;
     "*[_type == \"anfahrt\"] {ueberschrift, text}": ANFAHRT_QUERYResult;
     "*[_type == \"impressuminfo\"] | order(titel) {\n    ueberschrift,\n    text,\n    titel\n  }": IMPRESSUMINFO_QUERYResult;
     "*[_type == \"leistungen\"] {ueberschrift, text}": LEISTUNGEN_QUERYResult;

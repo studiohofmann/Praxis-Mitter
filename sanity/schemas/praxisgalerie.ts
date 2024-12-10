@@ -14,6 +14,11 @@ const praxisgalerie = {
             type: 'string',
         }),
         defineField({
+            name: 'reihenfolge',
+            title: 'Reihenfolge',
+            type: 'string',
+        }),
+        defineField({
             name: 'bild',
             title: 'Bild',
             type: 'image',

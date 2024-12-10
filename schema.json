@@ -885,6 +885,13 @@
         },
         "optional": true
       },
+      "reihenfolge": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "bild": {
         "type": "objectAttribute",
         "value": {
