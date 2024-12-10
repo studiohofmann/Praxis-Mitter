@@ -19,7 +19,7 @@ export default async function Impressum() {
     }
 
     return (
-        <div className='pt-16'>
+        <div>
             <Impressuminfo />
             <section>
                 <h2>{impressumData.ueberschrift}</h2>

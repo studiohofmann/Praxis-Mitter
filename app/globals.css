@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-    @apply text-4xl;
+    @apply text-3xl;
     @apply font-extrabold;
     @apply tracking-wide;
 }
@@ -20,9 +20,19 @@ h2 {
 
 }
 
+h3 {
+    @apply font-bold;
+    @apply tracking-wide;
+
+}
+
 a {
+    @apply font-bold;
     @apply text-green200;
     @apply hover:text-green50;
+    @apply transition-all;
+    @apply duration-300;
+    @apply ease-in-out;
 }
 
 section {
@@ -36,17 +46,22 @@ section {
 
 button,
 .mobile-hyperlink-class {
+    @apply font-bold;
     @apply bg-green400;
+    @apply hover:bg-brown400;
     @apply text-green200;
-    @apply hover:text-green100;
+    @apply hover:text-green50;
     @apply w-full;
-    @apply py-2;
-    @apply px-4;
+    @apply py-4;
+    @apply px-8;
     @apply flex;
     @apply gap-4;
     @apply items-center;
     @apply justify-center;
     @apply outline-none;
+    @apply transition-all;
+    @apply duration-300;
+    @apply ease-in-out;
 }
 
 .mobile-hyperlink-container-class {
@@ -54,21 +69,32 @@ button,
     @apply px-8;
     @apply flex;
     @apply flex-col;
-    @apply gap-8;
+    @apply gap-4;
+}
+
+.mobile-hyperlink-class.active {
+    @apply bg-brown400;
+    @apply text-green50;
 }
 
 .inputcontainer {
     @apply flex;
     @apply flex-col;
     @apply gap-2;
+    @apply rounded-none;
 }
 
 input,
 select,
 textarea {
     @apply bg-green300;
-    @apply py-2;
-    @apply px-4;
+    @apply py-4;
+    @apply px-8;
+    @apply appearance-none;
+}
+
+select:invalid {
+    @apply text-green100;
 }
 
 button:focus,

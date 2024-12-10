@@ -1,28 +1,41 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Hyperlinks from './Hyperlinks'
 import Icons from './Icons'
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 import Link from 'next/link'
 
 export default function Navigation() {
+    const pathname = usePathname()
+    const isHomePage = pathname === '/'
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
+    const [isBackgroundVisible, setIsBackgroundVisible] = useState(!isHomePage) // Initialize based on path
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollPos = window.scrollY
-
-            // Background opacity
-            // Hide on scroll down, show on scroll up
+            setIsBackgroundVisible(true)
             setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10)
             setPrevScrollPos(currentScrollPos)
         }
 
+        const handleClick = () => {
+            setIsBackgroundVisible(true)
+            setVisible(true)
+        }
+
         window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
+        window.addEventListener('click', handleClick)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+            window.removeEventListener('click', handleClick)
+        }
     }, [prevScrollPos])
 
     useEffect(() => {
@@ -46,14 +59,17 @@ export default function Navigation() {
         <header className={`
             fixed w-full top-0 h-16 transition-all duration-300 z-40
             ${visible ? 'translate-y-0' : '-translate-y-full'}
-            bg-green400
+            ${isBackgroundVisible ? 'bg-green400' : 'bg-transparent'}
         `}>
             {/* Main Navigation Content */}
             <div className='flex justify-between items-center px-4 h-full z-50'>
                 {/* Logo with click handler */}
                 <Link
                     href="/"
-                    className='z-30 font-bold'
+                    className={`
+                        z-30 font-bold
+                        ${pathname === '/' ? 'text-green50' : ''}
+                    `}
                     onClick={() => setIsMobileMenuOpen(false)}
                 >
                     Praxis Mitter
@@ -71,7 +87,7 @@ export default function Navigation() {
                     {/* Mobile Menu Button */}
                     <div
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden"
+                        className="md:hidden cursor-pointer"
                     >
                         {isMobileMenuOpen ? (
                             <a>
@@ -89,12 +105,15 @@ export default function Navigation() {
             {/* Mobile Menu */}
             <div className={`
                 md:hidden fixed top-0 left-0 h-screen w-screen z-20
-                bg-brown400 transition-opacity duration-300 ease-in-out
+                bg-blue900 transition-opacity duration-300 ease-in-out
                 overflow-hidden
                 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
             `}>
                 <div className="h-full w-full flex items-center justify-center pt-16">
-                    <Hyperlinks variant="mobile" onLinkClick={() => setIsMobileMenuOpen(false)} />
+                    <Hyperlinks
+                        variant="mobile"
+                        onLinkClick={() => setIsMobileMenuOpen(false)}
+                    />
                 </div>
             </div>
 

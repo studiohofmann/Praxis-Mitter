@@ -344,6 +344,7 @@ export type Seiten = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  reihenfolge?: string;
   titel?: string;
   slug?: Slug;
   ueberschrift?: string;
@@ -376,9 +377,17 @@ export type Slug = {
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Impressuminfo | Anfahrt | Icons | Praxisgalerie | Uebermichbild | Leistung | Leistungen | Termin | Startbild | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Seiten | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
+// Variable: HYPERLINKS_QUERY
+// Query: *[_type == "seiten" && slug.current != "/"] | order(reihenfolge) {    reihenfolge,    titel,    slug,}
+export type HYPERLINKS_QUERYResult = Array<{
+  reihenfolge: string | null;
+  titel: string | null;
+  slug: Slug | null;
+}>;
 // Variable: SEITEN_QUERY
-// Query: *[_type == "seiten"] {titel, slug, ueberschrift, text}
+// Query: *[_type == "seiten"] | order(reihenfolge) {reihenfolge,titel, slug, ueberschrift, text}
 export type SEITEN_QUERYResult = Array<{
+  reihenfolge: string | null;
   titel: string | null;
   slug: Slug | null;
   ueberschrift: string | null;
@@ -502,7 +511,7 @@ export type ANFAHRT_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: IMPRESSUMINFO_QUERY
-// Query: *[_type == "impressuminfo"] {ueberschrift, text}
+// Query: *[_type == "impressuminfo"] | order(titel) {    ueberschrift,    text,    titel  }
 export type IMPRESSUMINFO_QUERYResult = Array<{
   ueberschrift: string | null;
   text: Array<{
@@ -523,6 +532,7 @@ export type IMPRESSUMINFO_QUERYResult = Array<{
     _type: "block";
     _key: string;
   }> | null;
+  titel: string | null;
 }>;
 // Variable: LEISTUNGEN_QUERY
 // Query: *[_type == "leistungen"] {ueberschrift, text}
@@ -557,14 +567,15 @@ export type LEISTUNG_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"seiten\"] {titel, slug, ueberschrift, text}": SEITEN_QUERYResult;
+    "*[_type == \"seiten\" && slug.current != \"/\"] | order(reihenfolge) {\n    reihenfolge,\n    titel,\n    slug,\n}": HYPERLINKS_QUERYResult;
+    "*[_type == \"seiten\"] | order(reihenfolge) {reihenfolge,titel, slug, ueberschrift, text}": SEITEN_QUERYResult;
     "*[_type == \"startbild\"] {bild}": STARTBILD_QUERYResult;
     "*[_type == \"icons\"] {name, wert}": ICONS_QUERYResult;
     "*[_type == \"termin\"] {ueberschrift, text}": TERMIN_QUERYResult;
     "*[_type == \"uebermichbild\"] {bild}": UEBERMICHBILD_QUERYResult;
     "*[_type == \"praxisgalerie\"] {bild}": PRAXISGALERIE_QUERYResult;
     "*[_type == \"anfahrt\"] {ueberschrift, text}": ANFAHRT_QUERYResult;
-    "*[_type == \"impressuminfo\"] {ueberschrift, text}": IMPRESSUMINFO_QUERYResult;
+    "*[_type == \"impressuminfo\"] | order(titel) {\n    ueberschrift,\n    text,\n    titel\n  }": IMPRESSUMINFO_QUERYResult;
     "*[_type == \"leistungen\"] {ueberschrift, text}": LEISTUNGEN_QUERYResult;
     "*[_type == \"leistung\"] {ueberschrift}": LEISTUNG_QUERYResult;
   }

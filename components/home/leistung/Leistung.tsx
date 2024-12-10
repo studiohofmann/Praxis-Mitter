@@ -22,11 +22,10 @@ export default async function Leistung() {
 
         <ul className="list-disc pl-5 space-y-2">
             {leistungen.map((leistung, index) => (
-                <li
-                    key={index}
-                    className="font-bold"
-                >
-                    {leistung.ueberschrift}
+                <li key={index}>
+                    <h3>
+                        {leistung.ueberschrift}
+                    </h3>
                 </li>
             ))}
         </ul>

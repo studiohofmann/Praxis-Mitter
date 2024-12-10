@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { client } from '@/sanity/lib/client'
-import { SEITEN_QUERY } from '@/sanity/lib/queries'
+import { HYPERLINKS_QUERY } from '@/sanity/lib/queries'
 import { Seiten } from '@/sanity.types'
 
 interface HyperlinksProps {
@@ -12,6 +13,7 @@ interface HyperlinksProps {
 }
 
 export default function Hyperlinks({ onLinkClick, variant = 'default' }: HyperlinksProps) {
+    const pathname = usePathname()
     const [seiten, setSeiten] = useState<Seiten[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
@@ -20,7 +22,7 @@ export default function Hyperlinks({ onLinkClick, variant = 'default' }: Hyperli
         const fetchSeiten = async () => {
             try {
                 console.log('Fetching seiten...') // Debug log
-                const data = await client.fetch(SEITEN_QUERY)
+                const data = await client.fetch(HYPERLINKS_QUERY)
                 console.log('Fetched data:', data) // Debug log
                 if (!data || data.length === 0) throw new Error('No data received')
                 setSeiten(data)
@@ -40,18 +42,25 @@ export default function Hyperlinks({ onLinkClick, variant = 'default' }: Hyperli
 
     return (
         <nav className={variant === 'mobile' ? 'mobile-hyperlink-container-class' : 'a'}>
-            {seiten.map((seite) => (
-                <div key={seite.slug?.current}>
-                    <Link
-                        href={`/${seite.slug?.current}`}
-                        onClick={onLinkClick}
-                        className={variant === 'mobile' ? 'mobile-hyperlink-class' : 'a'}
-                    >
-                        {seite.titel}
-                    </Link>
-                </div>
-            ))}
+            {seiten.map((seite) => {
+                const isActive = pathname === `/${seite.slug?.current}`
 
+                return (
+                    <div key={seite.slug?.current}>
+                        <Link
+                            href={`/${seite.slug?.current}`}
+                            onClick={onLinkClick}
+                            className={`
+                                ${variant === 'mobile' ? 'mobile-hyperlink-class' : 'a'}
+                                ${isActive && variant === 'mobile' ? 'active' : ''}
+                                ${isActive && variant !== 'mobile' ? 'text-green50' : ''}
+                            `}
+                        >
+                            {seite.titel}
+                        </Link>
+                    </div>
+                )
+            })}
         </nav>
     )
 }

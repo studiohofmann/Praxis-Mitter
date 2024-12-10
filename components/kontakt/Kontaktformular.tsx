@@ -3,11 +3,14 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { ArrowRightOutlined } from "@ant-design/icons";
 
+import React from 'react';
+
 export default function Kontaktforumlar() {
     const [state, handleSubmit] = useForm("mbljqkev");
 
     if (state.succeeded) {
-        return <p>Thanks for your submission!</p>;
+        return <p>Vielen Dank für Ihre Nachricht!
+            Wir werden uns so schnell wie möglich bei Ihnen melden.</p>;
     }
 
     return (
@@ -17,6 +20,7 @@ export default function Kontaktforumlar() {
                     id="anrede"
                     name="anrede"
                     required
+                    defaultValue=""
                 >
                     <option value="" disabled>Anrede / Bitte wählen</option>
                     <option value="frau">Frau</option>
@@ -27,13 +31,14 @@ export default function Kontaktforumlar() {
             </div>
             <div className="inputcontainer">
                 <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
+                    id="vorname"
+                    type="text"
+                    name="vorname"
+                    placeholder="Vorname"
+                    required
 
                 />
-                <ValidationError prefix="Email" field="email" errors={state.errors} />
+                <ValidationError prefix="Name" field="name" errors={state.errors} />
             </div>
             <div className="inputcontainer">
                 <input
@@ -41,25 +46,28 @@ export default function Kontaktforumlar() {
                     type="text"
                     name="name"
                     placeholder="Name"
+                    required
 
                 />
                 <ValidationError prefix="Name" field="name" errors={state.errors} />
             </div>
             <div className="inputcontainer">
                 <input
-                    id="vorname"
-                    type="text"
-                    name="vorname"
-                    placeholder="Vorname"
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
 
                 />
-                <ValidationError prefix="Name" field="name" errors={state.errors} />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
             </div>
             <div className="inputcontainer">
                 <textarea
                     id="message"
                     name="message"
                     placeholder="Nachricht"
+                    rows={4}
 
                 />
                 <ValidationError prefix="Message" field="message" errors={state.errors} />

@@ -9,6 +9,11 @@ const seiten = {
 
     fields: [
         defineField({
+            name: 'reihenfolge',
+            title: 'Reihenfolge',
+            type: 'string',
+        }),
+        defineField({
             name: 'titel',
             title: 'Titel',
             type: 'string',

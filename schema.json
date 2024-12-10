@@ -2237,6 +2237,13 @@
           "type": "string"
         }
       },
+      "reihenfolge": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "titel": {
         "type": "objectAttribute",
         "value": {
