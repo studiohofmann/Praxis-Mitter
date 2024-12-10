@@ -8,7 +8,7 @@ export const HYPERLINKS_QUERY = groq`*[_type == "seiten" && slug.current != "/"]
 }`
 export const SEITEN_QUERY = groq`*[_type == "seiten"] | order(reihenfolge) {reihenfolge,titel, slug, ueberschrift, text}`
 export const STARTBILD_QUERY = groq`*[_type == "startbild"] {bild}`
-export const ICONS_QUERY = groq`*[_type == "icons"] {name, wert}`
+export const ICONS_QUERY = groq`*[_type == "icons"] | order(reihenfolge) {name, wert}`
 export const TERMIN_QUERY = groq`*[_type == "termin"] {ueberschrift, text}`
 export const UEBERMICHBILD_QUERY = groq`*[_type == "uebermichbild"] {bild}`
 export const PRAXISGALERIE_QUERY = groq`*[_type == "praxisgalerie"] {bild}`

@@ -14,6 +14,11 @@ const icons = {
             type: 'string',
         }),
         defineField({
+            name: 'reihenfolge',
+            title: 'Reihenfolge',
+            type: 'string',
+        }),
+        defineField({
             name: 'wert',
             title: 'Wert',
             type: 'string',

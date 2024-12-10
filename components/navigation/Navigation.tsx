@@ -6,6 +6,7 @@ import Hyperlinks from './Hyperlinks'
 import Icons from './Icons'
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 import Link from 'next/link'
+import Logo from '../../public/logo-norway400.svg'
 
 export default function Navigation() {
     const pathname = usePathname()
@@ -67,12 +68,12 @@ export default function Navigation() {
                 <Link
                     href="/"
                     className={`
-                        z-30 font-bold
+                        z-30 font-bold h-10
                         ${pathname === '/' ? 'text-green50' : ''}
                     `}
                     onClick={() => setIsMobileMenuOpen(false)}
                 >
-                    Praxis Mitter
+                    <Logo className="w-full h-full" />
                 </Link>
 
                 <div className="flex items-center gap-8 z-30">

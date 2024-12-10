@@ -101,10 +101,8 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    @apply bg-green200;
+    @apply bg-brown400;
     @apply outline-none;
-    @apply ring-2;
-    @apply ring-green300;
     @apply rounded-none;
 }
 

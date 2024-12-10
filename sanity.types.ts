@@ -131,6 +131,7 @@ export type Icons = {
   _updatedAt: string;
   _rev: string;
   name?: string;
+  reihenfolge?: string;
   wert?: string;
 };
 
@@ -427,7 +428,7 @@ export type STARTBILD_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: ICONS_QUERY
-// Query: *[_type == "icons"] {name, wert}
+// Query: *[_type == "icons"] | order(reihenfolge) {name, wert}
 export type ICONS_QUERYResult = Array<{
   name: string | null;
   wert: string | null;
@@ -570,7 +571,7 @@ declare module "@sanity/client" {
     "*[_type == \"seiten\" && slug.current != \"/\"] | order(reihenfolge) {\n    reihenfolge,\n    titel,\n    slug,\n}": HYPERLINKS_QUERYResult;
     "*[_type == \"seiten\"] | order(reihenfolge) {reihenfolge,titel, slug, ueberschrift, text}": SEITEN_QUERYResult;
     "*[_type == \"startbild\"] {bild}": STARTBILD_QUERYResult;
-    "*[_type == \"icons\"] {name, wert}": ICONS_QUERYResult;
+    "*[_type == \"icons\"] | order(reihenfolge) {name, wert}": ICONS_QUERYResult;
     "*[_type == \"termin\"] {ueberschrift, text}": TERMIN_QUERYResult;
     "*[_type == \"uebermichbild\"] {bild}": UEBERMICHBILD_QUERYResult;
     "*[_type == \"praxisgalerie\"] {bild}": PRAXISGALERIE_QUERYResult;

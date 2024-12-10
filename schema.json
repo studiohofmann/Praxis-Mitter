@@ -827,6 +827,13 @@
         },
         "optional": true
       },
+      "reihenfolge": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "wert": {
         "type": "objectAttribute",
         "value": {
