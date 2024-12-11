@@ -41,7 +41,7 @@ export default function Icons() {
 
     const iconConfig = {
         anruf: {
-            icon: <PhoneFilled className="text-xl" />,
+            icon: <PhoneFilled className="text-xl rotate-90" />,
             href: (wert: string) => `tel:${wert}`
         },
         email: {

@@ -68,6 +68,33 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Footer = {
+  _id: string;
+  _type: "footer";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  titel?: string;
+  text?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Impressuminfo = {
   _id: string;
   _type: "impressuminfo";
@@ -241,7 +268,6 @@ export type Termin = {
   _updatedAt: string;
   _rev: string;
   titel?: string;
-  ueberschrift?: string;
   text?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -376,7 +402,7 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Impressuminfo | Anfahrt | Icons | Praxisgalerie | Uebermichbild | Leistung | Leistungen | Termin | Startbild | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Seiten | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Footer | Impressuminfo | Anfahrt | Icons | Praxisgalerie | Uebermichbild | Leistung | Leistungen | Termin | Startbild | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Seiten | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: HYPERLINKS_QUERY
@@ -437,7 +463,7 @@ export type ICONS_QUERYResult = Array<{
 // Variable: TERMIN_QUERY
 // Query: *[_type == "termin"] {ueberschrift, text}
 export type TERMIN_QUERYResult = Array<{
-  ueberschrift: string | null;
+  ueberschrift: null;
   text: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -564,6 +590,29 @@ export type LEISTUNGEN_QUERYResult = Array<{
 export type LEISTUNG_QUERYResult = Array<{
   ueberschrift: string | null;
 }>;
+// Variable: FOOTER_QUERY
+// Query: *[_type == "footer"] {titel,text}
+export type FOOTER_QUERYResult = Array<{
+  titel: string | null;
+  text: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -580,5 +629,6 @@ declare module "@sanity/client" {
     "*[_type == \"impressuminfo\"] | order(titel) {\n    ueberschrift,\n    text,\n    titel\n  }": IMPRESSUMINFO_QUERYResult;
     "*[_type == \"leistungen\"] {ueberschrift, text}": LEISTUNGEN_QUERYResult;
     "*[_type == \"leistung\"] {ueberschrift}": LEISTUNG_QUERYResult;
+    "*[_type == \"footer\"] {titel,text}": FOOTER_QUERYResult;
   }
 }

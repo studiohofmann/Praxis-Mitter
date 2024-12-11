@@ -43,7 +43,7 @@ export default async function Startbild() {
                        (max-width: 1200px) 100vw,
                        100vw"
                 />
-                <div className='absolute inset-0 bg-green300 opacity-50' /> {/* Overlay div */}
+                {/*<div className='absolute inset-0 bg-green300 opacity-50' />  Overlay div */}
             </div>
             {data.homeData && (
                 <div className="absolute inset-0 pt-16">

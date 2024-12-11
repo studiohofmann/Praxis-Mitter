@@ -20,12 +20,16 @@ export default async function Termin() {
     if (!terminData) return null
 
     return (
-        <section className='bg-green300'>
-            <h2>{terminData.ueberschrift}</h2>
-            <div>
-                <PortableText value={terminData.text || []} />
+        <div className='flex flex-col gap-8'>
+            <div className='flex-1 flex flex-col gap-4'>
+                {/* <h3>{terminData.ueberschrift}</h3>*/}
+                <div>
+                    <PortableText value={terminData.text || []} />
+                </div>
             </div>
-            <TerminIcons />
-        </section>
+            <div className="flex-1">
+                <TerminIcons />
+            </div>
+        </div>
     )
 }

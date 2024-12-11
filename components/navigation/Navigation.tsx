@@ -5,8 +5,7 @@ import { usePathname } from 'next/navigation'
 import Hyperlinks from './Hyperlinks'
 import Icons from './Icons'
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
-import Link from 'next/link'
-import Logo from '../../public/logo-norway400.svg'
+import Logo from './Logo'
 
 export default function Navigation() {
     const pathname = usePathname()
@@ -65,16 +64,9 @@ export default function Navigation() {
             {/* Main Navigation Content */}
             <div className='flex justify-between items-center px-4 h-full z-50'>
                 {/* Logo with click handler */}
-                <Link
-                    href="/"
-                    className={`
-                        z-30 font-bold h-10
-                        ${pathname === '/' ? 'text-green50' : ''}
-                    `}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                >
-                    <Logo className="w-full h-full" />
-                </Link>
+                <div className='z-50'>
+                    <Logo />
+                </div>
 
                 <div className="flex items-center gap-8 z-30">
                     {/* Icons */}
@@ -82,7 +74,7 @@ export default function Navigation() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:block">
-                        <Hyperlinks />
+                        <Hyperlinks variant="desktop" />
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -92,11 +84,11 @@ export default function Navigation() {
                     >
                         {isMobileMenuOpen ? (
                             <a>
-                                <CloseOutlined className="a text-xl" />
+                                <CloseOutlined className="text-xl" />
                             </a>
                         ) : (
                             <a>
-                                <MenuOutlined className="a text-xl" />
+                                <MenuOutlined className="text-xl" />
                             </a>
                         )}
                     </div>
@@ -110,12 +102,12 @@ export default function Navigation() {
                 overflow-hidden
                 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
             `}>
-                <div className="h-full w-full flex items-center justify-center pt-16">
-                    <Hyperlinks
-                        variant="mobile"
-                        onLinkClick={() => setIsMobileMenuOpen(false)}
-                    />
-                </div>
+
+                <Hyperlinks
+                    variant="mobile"
+                    onLinkClick={() => setIsMobileMenuOpen(false)}
+                />
+
             </div>
 
             {/* Mobile Menu Overlay */}

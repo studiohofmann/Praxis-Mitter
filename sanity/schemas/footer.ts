@@ -1,11 +1,11 @@
 import { defineField } from 'sanity';
-import { CalendarIcon } from '@sanity/icons'
+import { ArrowDownIcon } from '@sanity/icons'
 
-const termin = {
-    name: 'termin',
-    title: 'Termin',
+const footer = {
+    name: 'footer',
+    title: 'Footer',
     type: 'document',
-    icon: CalendarIcon,
+    icon: ArrowDownIcon,
 
     fields: [
         defineField({
@@ -13,20 +13,14 @@ const termin = {
             title: 'Titel',
             type: 'string',
         }),
-        // defineField({
-        //     name: 'ueberschrift',
-        //     title: 'Ueberschrift',
-        //     type: 'string',
-        // }),
+
         defineField({
             name: 'text',
             title: 'Text',
             type: 'array',
             of: [{ type: 'block' }],
         }),
-
-
     ],
 };
 
-export default termin;
+export default footer;

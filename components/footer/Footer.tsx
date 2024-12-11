@@ -1,23 +1,30 @@
 import React from 'react';
-import Icons from "../navigation/Icons";
-import Hyperlinks from "../navigation/Hyperlinks";
-import NvsLogo from '../../public/nvs.svg';
-import EmrLogo from '../../public/emr.svg';
-import Link from 'next/link';
+import Termin from '@/components/footer/termin/Termin';
+import Zertifikate from './Zertifikate';
+import Menue from './Menue';
+import Adresse from './Adresse';
+import Copyright from './Copyright';
+import Logo from '../navigation/Logo';
+
 
 export default async function Footer() {
     return (
-        <div className="bg-green400 px-4 pt-24 pb-2 flex flex-col gap-8">
-            <div className="flex gap-8 justify-center">
-                <Link href="/">
-                    <NvsLogo className="w-full h-full" />
-                </Link>
-                <Link href="/">
-                    <EmrLogo className="w-full h-full" />
-                </Link>
+        <footer>
+            <Termin />
+            <Zertifikate />
+
+            <div className='flex justify-between'>
+                <div className='flex flex-col justify-end gap-4 '>
+                    <Logo />
+                    <Copyright />
+                </div>
+                <div className=''>
+                    <Menue />
+                </div>
+                <div className=''>
+                    <Adresse />
+                </div>
             </div>
-            <Icons />
-            <Hyperlinks />
-        </div>
+        </footer>
     );
 }

@@ -23,7 +23,9 @@ export default async function Impressum() {
             <Impressuminfo />
             <section>
                 <h2>{impressumData.ueberschrift}</h2>
-                <PortableText value={impressumData.text} />
+                <div>
+                    <PortableText value={impressumData.text} />
+                </div>
             </section>
         </div>
     );

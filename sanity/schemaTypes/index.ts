@@ -9,7 +9,8 @@ import termin from '../schemas/termin'
 import leistungen from '../schemas/leistungen'
 import leistung from '../schemas/leistung'
 import impressuminfo from '../schemas/impressuminfo'
+import footer from '../schemas/footer'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [seiten, startbild, termin, leistungen, leistung, uebermichbild, praxisgalerie, icons, anfahrt, impressuminfo],
+  types: [seiten, startbild, termin, leistungen, leistung, uebermichbild, praxisgalerie, icons, anfahrt, impressuminfo, footer],
 }

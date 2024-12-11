@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-    @apply text-3xl;
+    @apply text-4xl;
     @apply font-extrabold;
     @apply tracking-wide;
 }
@@ -35,6 +35,10 @@ a {
     @apply ease-in-out;
 }
 
+.active {
+    @apply text-green50;
+}
+
 section {
     @apply px-8;
     @apply pt-24;
@@ -44,8 +48,7 @@ section {
     @apply gap-8;
 }
 
-button,
-.mobile-hyperlink-class {
+button {
     @apply font-bold;
     @apply bg-green400;
     @apply hover:bg-brown400;
@@ -64,23 +67,9 @@ button,
     @apply ease-in-out;
 }
 
-.mobile-hyperlink-container-class {
-    @apply w-full;
-    @apply px-8;
-    @apply flex;
-    @apply flex-col;
-    @apply gap-4;
-}
-
-.mobile-hyperlink-class.active {
-    @apply bg-brown400;
-    @apply text-green50;
-}
-
 .inputcontainer {
     @apply flex;
     @apply flex-col;
-    @apply gap-2;
     @apply rounded-none;
 }
 
@@ -109,4 +98,89 @@ textarea:focus {
 input::placeholder,
 textarea::placeholder {
     @apply text-green100;
+}
+
+footer {
+    @apply text-sm;
+    @apply bg-green400;
+    @apply text-green50;
+    @apply px-4;
+    @apply pt-24;
+    @apply pb-4;
+    @apply flex;
+    @apply flex-col;
+    @apply gap-16;
+}
+
+.footerbutton {
+    @apply font-bold;
+    @apply bg-green200;
+    @apply hover:bg-brown400;
+    @apply text-green400;
+    @apply hover:text-green50;
+    @apply w-full;
+    @apply py-4;
+    @apply px-8;
+    @apply flex;
+    @apply gap-4;
+    @apply items-center;
+    @apply justify-center;
+    @apply outline-none;
+    @apply transition-all;
+    @apply duration-300;
+    @apply ease-in-out;
+}
+
+/* globals.css */
+
+/* Mobile Link Styles */
+.mobile-link {
+    @apply bg-green400;
+    @apply px-8;
+    @apply py-4;
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+}
+
+/* Active Mobile Link Styles */
+.active-mobile {
+    @apply text-green50;
+    @apply bg-brown500;
+}
+
+/* Mobile Navigation Styles */
+.mobile-nav {
+    @apply h-full;
+    @apply flex;
+    @apply flex-col;
+    @apply gap-4;
+    @apply px-4;
+    @apply justify-center;
+}
+
+/* Desktop Link Styles */
+.desktop-link {}
+
+/* Active Desktop Link Styles */
+/* Active Footer Link Styles */
+.active-desktop,
+.active-footer {
+    @apply text-green50;
+}
+
+
+
+/* Desktop Navigation Styles */
+.desktop-nav {
+    @apply flex;
+    @apply gap-4;
+}
+
+/* Footer Link Styles */
+.footer-link {}
+
+/* Footer Navigation Styles */
+.footer-nav {
+    @apply flex flex-col items-start;
 }

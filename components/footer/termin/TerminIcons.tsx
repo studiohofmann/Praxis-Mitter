@@ -29,7 +29,7 @@ export default function TerminIcons() {
 
     const iconConfig = {
         anruf: {
-            icon: <PhoneFilled className="text-xl" />,
+            icon: <PhoneFilled className="text-xl rotate-90" />,
             href: (wert: string) => `tel:${wert}`
         },
         email: {
@@ -46,8 +46,8 @@ export default function TerminIcons() {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <div className="flex justify-end w-full">
-            <div className="flex flex-col gap-4 w-2/3">
+        <div className="flex w-full">
+            <div className="flex flex-col w-full gap-4">
                 {icons.map((icon) => {
                     const config = iconConfig[icon.name.toLowerCase() as keyof typeof iconConfig]
                     if (!config) return null
@@ -59,10 +59,10 @@ export default function TerminIcons() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <button>
+                            <div className='footerbutton'>
                                 {config.icon}
                                 <span>{icon.name}</span>
-                            </button>
+                            </div>
                         </a>
                     )
                 })}
