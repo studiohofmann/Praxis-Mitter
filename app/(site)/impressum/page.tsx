@@ -21,7 +21,7 @@ export default async function Impressum() {
     return (
         <div>
             <Impressuminfo />
-            <section>
+            <section className='bg-green-300'>
                 <h2>{impressumData.ueberschrift}</h2>
                 <div>
                     <PortableText value={impressumData.text} />

@@ -22,7 +22,7 @@ export default async function UeberMich() {
     return (
         <div>
             <Uebermichbild />
-            <section>
+            <section className='bg-green-300'>
                 <h2>{ueberMichData.ueberschrift}</h2>
                 <PortableText value={ueberMichData.text} />
             </section>

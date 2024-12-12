@@ -7,23 +7,18 @@ import Copyright from './Copyright';
 import Logo from '../navigation/Logo';
 
 
-export default async function Footer() {
+export default function Footer() {
     return (
         <footer>
             <Termin />
             <Zertifikate />
-
-            <div className='flex justify-between'>
-                <div className='flex flex-col justify-end gap-4 '>
+            <div className='flex justify-between bg-grey-500 px-4 pt-16 pb-4'>
+                <div className='flex flex-col justify-between'>
                     <Logo />
                     <Copyright />
                 </div>
-                <div className=''>
-                    <Menue />
-                </div>
-                <div className=''>
-                    <Adresse />
-                </div>
+                <Menue />
+                <Adresse />
             </div>
         </footer>
     );

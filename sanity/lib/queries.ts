@@ -19,5 +19,5 @@ export const IMPRESSUMINFO_QUERY = groq`*[_type == "impressuminfo"] | order(tite
     titel
   }`
 export const LEISTUNGEN_QUERY = groq`*[_type == "leistungen"] {ueberschrift, text}`
-export const LEISTUNG_QUERY = groq`*[_type == "leistung"] {ueberschrift}`
+export const LEISTUNG_QUERY = groq`*[_type == "leistung"] | order(titel) {ueberschrift}`
 export const FOOTER_QUERY = groq`*[_type == "footer"] {titel,text}`

@@ -59,10 +59,10 @@ export default function TerminIcons() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <div className='footerbutton'>
+                            <button>
                                 {config.icon}
                                 <span>{icon.name}</span>
-                            </div>
+                            </button>
                         </a>
                     )
                 })}

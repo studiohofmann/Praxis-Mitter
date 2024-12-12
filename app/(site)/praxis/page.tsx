@@ -21,7 +21,7 @@ export default async function Praxis() {
 
     return (
         <div className='pt-16'>
-            <section>
+            <section className='bg-green-300'>
                 <h2>{praxisData.ueberschrift}</h2>
                 <PortableText value={praxisData.text} />
                 <Praxisgalerie />

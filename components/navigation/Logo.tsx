@@ -4,12 +4,16 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import LogoFile from '../../public/logo-norway400.svg'
 
-export default function Logo() {
+interface LogoProps {
+    onClick?: () => void;
+}
+
+export default function Logo({ onClick }: LogoProps) {
     const pathname = usePathname()
     const isActive = pathname === '/'
 
     return (
-        <Link href="/" className={isActive ? 'active' : ''}>
+        <Link href="/" onClick={onClick} className={isActive ? 'active' : ''}>
             <LogoFile className="w-16" />
         </Link>
     )

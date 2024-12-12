@@ -59,13 +59,13 @@ export default function Navigation() {
         <header className={`
             fixed w-full top-0 h-16 transition-all duration-300 z-40
             ${visible ? 'translate-y-0' : '-translate-y-full'}
-            ${isBackgroundVisible ? 'bg-green400' : 'bg-transparent'}
+            ${isBackgroundVisible ? 'bg-green-400' : 'bg-transparent'}
         `}>
             {/* Main Navigation Content */}
             <div className='flex justify-between items-center px-4 h-full z-50'>
                 {/* Logo with click handler */}
                 <div className='z-50'>
-                    <Logo />
+                    <Logo onClick={() => setIsMobileMenuOpen(false)} />
                 </div>
 
                 <div className="flex items-center gap-8 z-30">
@@ -80,11 +80,11 @@ export default function Navigation() {
                     {/* Mobile Menu Button */}
                     <div
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden cursor-pointer"
+                        className="md:hidden"
                     >
                         {isMobileMenuOpen ? (
                             <a>
-                                <CloseOutlined className="text-xl" />
+                                <CloseOutlined className="text-xl cursor-pointer" />
                             </a>
                         ) : (
                             <a>
@@ -98,7 +98,7 @@ export default function Navigation() {
             {/* Mobile Menu */}
             <div className={`
                 md:hidden fixed top-0 left-0 h-screen w-screen z-20
-                bg-blue900 transition-opacity duration-300 ease-in-out
+                bg-blue-500 transition-opacity duration-300 ease-in-out
                 overflow-hidden
                 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
             `}>

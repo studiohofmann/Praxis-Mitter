@@ -586,7 +586,7 @@ export type LEISTUNGEN_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: LEISTUNG_QUERY
-// Query: *[_type == "leistung"] {ueberschrift}
+// Query: *[_type == "leistung"] | order(titel) {ueberschrift}
 export type LEISTUNG_QUERYResult = Array<{
   ueberschrift: string | null;
 }>;
@@ -628,7 +628,7 @@ declare module "@sanity/client" {
     "*[_type == \"anfahrt\"] {ueberschrift, text}": ANFAHRT_QUERYResult;
     "*[_type == \"impressuminfo\"] | order(titel) {\n    ueberschrift,\n    text,\n    titel\n  }": IMPRESSUMINFO_QUERYResult;
     "*[_type == \"leistungen\"] {ueberschrift, text}": LEISTUNGEN_QUERYResult;
-    "*[_type == \"leistung\"] {ueberschrift}": LEISTUNG_QUERYResult;
+    "*[_type == \"leistung\"] | order(titel) {ueberschrift}": LEISTUNG_QUERYResult;
     "*[_type == \"footer\"] {titel,text}": FOOTER_QUERYResult;
   }
 }

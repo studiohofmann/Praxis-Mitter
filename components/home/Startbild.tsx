@@ -37,8 +37,11 @@ export default async function Startbild() {
                     src={urlFor(data.startbild.bild).url()}
                     alt={data.startbild.bild.alt || "Startbild"}
                     fill
+                    placeholder="blur"
+                    blurDataURL={urlFor(data.startbild.bild).width(24).height(24).blur(10).url()}
+                    quality={100}
                     priority
-                    className="object-cover"
+                    className="object-cover object-bottom"
                     sizes="(max-width: 768px) 100vw,
                        (max-width: 1200px) 100vw,
                        100vw"
@@ -48,7 +51,7 @@ export default async function Startbild() {
             {data.homeData && (
                 <div className="absolute inset-0 pt-16">
                     <div className='flex flex-col gap-8 text-green50 items-center justify-center h-full px-8'>
-                        <h1>{data.homeData.ueberschrift}</h1>
+                        <h1 className='text-center text-grey-100'>{data.homeData.ueberschrift}</h1>
                     </div>
                 </div>
             )}

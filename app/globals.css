@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 body {
-    @apply bg-brown200;
-    @apply text-blue900;
+    @apply bg-brown-300;
+    @apply text-grey-700;
 }
 
 h1 {
-    @apply text-4xl;
-    @apply font-extrabold;
-    @apply tracking-wide;
+    @apply text-5xl;
+    @apply font-bold;
+
 }
 
 h2 {
-    @apply text-2xl;
-    @apply font-bold;
-    @apply tracking-wide;
+    @apply text-xl;
+    @apply font-semibold;
+
 
 }
 
@@ -28,21 +28,20 @@ h3 {
 
 a {
     @apply font-bold;
-    @apply text-green200;
-    @apply hover:text-green50;
+    @apply text-grey-200;
+    @apply hover:text-grey-100;
     @apply transition-all;
     @apply duration-300;
     @apply ease-in-out;
 }
 
 .active {
-    @apply text-green50;
+    @apply text-grey-100;
 }
 
 section {
     @apply px-8;
-    @apply pt-24;
-    @apply pb-16;
+    @apply py-16;
     @apply flex;
     @apply flex-col;
     @apply gap-8;
@@ -50,10 +49,10 @@ section {
 
 button {
     @apply font-bold;
-    @apply bg-green400;
-    @apply hover:bg-brown400;
-    @apply text-green200;
-    @apply hover:text-green50;
+    @apply bg-green-400;
+    @apply hover:bg-brown-400;
+    @apply text-grey-200;
+    @apply hover:text-grey-100;
     @apply w-full;
     @apply py-4;
     @apply px-8;
@@ -76,66 +75,50 @@ button {
 input,
 select,
 textarea {
-    @apply bg-green300;
+    @apply bg-green-300;
     @apply py-4;
     @apply px-8;
     @apply appearance-none;
 }
 
 select:invalid {
-    @apply text-green100;
+    @apply text-grey-200;
 }
 
 button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    @apply bg-brown400;
+    @apply bg-brown-400;
     @apply outline-none;
     @apply rounded-none;
 }
 
 input::placeholder,
 textarea::placeholder {
-    @apply text-green100;
+    @apply text-grey-200;
 }
 
 footer {
     @apply text-sm;
-    @apply bg-green400;
-    @apply text-green50;
-    @apply px-4;
-    @apply pt-24;
-    @apply pb-4;
+    @apply text-grey-200;
     @apply flex;
     @apply flex-col;
-    @apply gap-16;
 }
 
-.footerbutton {
-    @apply font-bold;
-    @apply bg-green200;
-    @apply hover:bg-brown400;
-    @apply text-green400;
-    @apply hover:text-green50;
-    @apply w-full;
-    @apply py-4;
-    @apply px-8;
+.footersection {
+    @apply px-4;
     @apply flex;
-    @apply gap-4;
-    @apply items-center;
-    @apply justify-center;
-    @apply outline-none;
-    @apply transition-all;
-    @apply duration-300;
-    @apply ease-in-out;
+    @apply flex-col;
+    @apply gap-8;
 }
 
 /* globals.css */
 
 /* Mobile Link Styles */
 .mobile-link {
-    @apply bg-green400;
+    @apply bg-green-400;
+    @apply hover:bg-brown-400;
     @apply px-8;
     @apply py-4;
     @apply flex;
@@ -145,8 +128,8 @@ footer {
 
 /* Active Mobile Link Styles */
 .active-mobile {
-    @apply text-green50;
-    @apply bg-brown500;
+    @apply text-grey-50;
+    @apply bg-brown-400;
 }
 
 /* Mobile Navigation Styles */
