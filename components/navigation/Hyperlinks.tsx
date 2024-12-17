@@ -10,9 +10,10 @@ import { Seiten } from '@/sanity.types';
 interface HyperlinksProps {
     onLinkClick?: () => void;
     variant?: 'mobile' | 'desktop' | 'footer';
+    isInitialLoad?: boolean;
 }
 
-export default function Hyperlinks({ onLinkClick, variant = 'desktop' }: HyperlinksProps) {
+export default function Hyperlinks({ onLinkClick, variant = 'desktop', isInitialLoad }: HyperlinksProps) {
     const pathname = usePathname();
     const [seiten, setSeiten] = useState<Seiten[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +61,9 @@ export default function Hyperlinks({ onLinkClick, variant = 'desktop' }: Hyperli
                 ? 'footer-nav'
                 : 'desktop-nav';
 
+    // Conditional class for initial load
+    const initialLoadClass = isInitialLoad ? 'text-green-200' : '';
+
     return (
         <nav className={navClass}>
             {seiten.map((seite) => {
@@ -69,7 +73,7 @@ export default function Hyperlinks({ onLinkClick, variant = 'desktop' }: Hyperli
                 return (
                     <div key={slug}>
                         <Link href={slug} onClick={onLinkClick}>
-                            <span className={`${linkClass} ${isActive ? activeLinkClass : ''}`}>
+                            <span className={`${linkClass} ${isActive ? activeLinkClass : ''} ${initialLoadClass}`}>
                                 {seite.titel}
                             </span>
                         </Link>

@@ -19,9 +19,9 @@ export default async function Impressum() {
     }
 
     return (
-        <div>
+        <div className='md:flex'>
             <Impressuminfo />
-            <section className='bg-green-300'>
+            <section>
                 <h2>{impressumData.ueberschrift}</h2>
                 <div>
                     <PortableText value={impressumData.text} />

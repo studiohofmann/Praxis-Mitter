@@ -26,7 +26,7 @@ export default async function Zertifikate() {
     if (!zertifikateData) return null
 
     return (
-        <div className='footersection bg-green-400 py-16'>
+        <div className='footersection py-8 bg-blue-600'>
             <div>
                 <PortableText value={zertifikateData.text || []} />
             </div>

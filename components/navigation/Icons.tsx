@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { client } from '@/sanity/lib/client'
 import { ICONS_QUERY } from '@/sanity/lib/queries'
 import {
@@ -15,7 +15,11 @@ interface IconData {
     wert: string
 }
 
-export default function Icons() {
+interface IconsProps {
+    isInitialLoad: boolean;
+}
+
+export default function Icons({ isInitialLoad }: IconsProps) {
     const [icons, setIcons] = useState<IconData[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [fetchError, setFetchError] = useState<null | string>(null)
@@ -41,19 +45,19 @@ export default function Icons() {
 
     const iconConfig = {
         anruf: {
-            icon: <PhoneFilled className="text-xl rotate-90" />,
+            icon: <PhoneFilled className={`text-xl rotate-90 ${isInitialLoad ? 'text-green-200' : ''}`} />,
             href: (wert: string) => `tel:${wert}`
         },
         email: {
-            icon: <MailFilled className="text-xl" />,
+            icon: <MailFilled className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />,
             href: (wert: string) => `mailto:${wert}`
         },
         whatsapp: {
-            icon: <WhatsAppOutlined className="text-xl" />,
+            icon: <WhatsAppOutlined className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />,
             href: (wert: string) => `https://wa.me/+${wert}`
         },
         instagram: {
-            icon: <InstagramFilled className="text-xl" />,
+            icon: <InstagramFilled className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />,
             href: (wert: string) => `https://www.instagram.com/${wert}`
         }
     }

@@ -20,9 +20,9 @@ export default async function UeberMich() {
     }
 
     return (
-        <div>
+        <div className='md:flex'>
             <Uebermichbild />
-            <section className='bg-green-300'>
+            <section className='bg-blue-300'>
                 <h2>{ueberMichData.ueberschrift}</h2>
                 <PortableText value={ueberMichData.text} />
             </section>

@@ -23,12 +23,16 @@ export default async function Home() {
   return (
     <div>
       <Startbild />
-      <section>
-        <div>
-          <PortableText value={homeData.text} />
-        </div>
-      </section>
-      <Leistungen />
+      <div className='md:flex'>
+        <section>
+          <div>
+            <PortableText value={homeData.text} />
+          </div>
+        </section>
+
+        <Leistungen />
+
+      </div>
 
     </div>
   );

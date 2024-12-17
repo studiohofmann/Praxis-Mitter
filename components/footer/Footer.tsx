@@ -12,13 +12,13 @@ export default function Footer() {
         <footer>
             <Termin />
             <Zertifikate />
-            <div className='flex justify-between bg-grey-500 px-4 pt-16 pb-4'>
-                <div className='flex flex-col justify-between'>
+            <div className='footersection pt-8 pb-4'>
+                <div className='flex justify-between items-end'>
+                    <Adresse />
+                    <Menue />
                     <Logo />
-                    <Copyright />
                 </div>
-                <Menue />
-                <Adresse />
+                <Copyright />
             </div>
         </footer>
     );

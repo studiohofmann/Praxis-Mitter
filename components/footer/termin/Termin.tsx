@@ -20,16 +20,13 @@ export default async function Termin() {
     if (!terminData) return null
 
     return (
-        <div className='footersection py-16 text-grey-700'>
-            <div className='flex-1 flex flex-col gap-4'>
-                {/* <h3>{terminData.ueberschrift}</h3>*/}
+        <div className='footersection py-8'>
+            <div className='flex flex-col gap-4'>
                 <div>
                     <PortableText value={terminData.text || []} />
                 </div>
             </div>
-            <div className="flex-1">
-                <TerminIcons />
-            </div>
+            <TerminIcons />
         </div>
     )
 }

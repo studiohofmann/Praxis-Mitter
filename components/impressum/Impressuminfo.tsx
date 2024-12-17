@@ -21,7 +21,7 @@ export default async function Impressuminfo() {
 
     return (
 
-        <section>
+        <section className='bg-blue-200'>
             <div className='pt-16 flex flex-col gap-8'>
                 {impressumData.map((item, index) => (
                     <div key={index}>

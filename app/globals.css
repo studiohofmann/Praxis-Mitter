@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body {
-    @apply bg-brown-300;
-    @apply text-grey-700;
+    @apply bg-green-200;
+    @apply text-grey-800;
 }
 
 h1 {
-    @apply text-5xl;
+    @apply text-5xl md:text-6xl;
     @apply font-bold;
 
 }
@@ -28,15 +28,11 @@ h3 {
 
 a {
     @apply font-bold;
-    @apply text-grey-200;
-    @apply hover:text-grey-100;
+    @apply text-green-300;
+    @apply hover:text-green-200;
     @apply transition-all;
     @apply duration-300;
     @apply ease-in-out;
-}
-
-.active {
-    @apply text-grey-100;
 }
 
 section {
@@ -49,10 +45,10 @@ section {
 
 button {
     @apply font-bold;
-    @apply bg-green-400;
-    @apply hover:bg-brown-400;
-    @apply text-grey-200;
-    @apply hover:text-grey-100;
+    @apply bg-green-500;
+    @apply hover:bg-green-600;
+    @apply text-green-300;
+    @apply hover:text-green-200;
     @apply w-full;
     @apply py-4;
     @apply px-8;
@@ -75,50 +71,51 @@ button {
 input,
 select,
 textarea {
-    @apply bg-green-300;
+    @apply bg-green-400;
     @apply py-4;
     @apply px-8;
     @apply appearance-none;
 }
 
 select:invalid {
-    @apply text-grey-200;
+    @apply text-green-200;
 }
 
 button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    @apply bg-brown-400;
+    @apply bg-green-300;
     @apply outline-none;
     @apply rounded-none;
 }
 
 input::placeholder,
 textarea::placeholder {
-    @apply text-grey-200;
+    @apply text-green-200;
 }
 
 footer {
     @apply text-sm;
-    @apply text-grey-200;
+    @apply text-grey-300;
+    @apply bg-blue-700;
     @apply flex;
     @apply flex-col;
+    @apply md:grid grid-cols-3;
 }
 
 .footersection {
-    @apply px-4;
+    @apply px-4 md:p-8;
     @apply flex;
     @apply flex-col;
+    @apply justify-end;
     @apply gap-8;
 }
 
-/* globals.css */
-
 /* Mobile Link Styles */
 .mobile-link {
-    @apply bg-green-400;
-    @apply hover:bg-brown-400;
+    @apply bg-green-500;
+    @apply hover:bg-green-600;
     @apply px-8;
     @apply py-4;
     @apply flex;
@@ -126,10 +123,14 @@ footer {
     @apply justify-center;
 }
 
+.active {
+    @apply text-green-200;
+}
+
 /* Active Mobile Link Styles */
 .active-mobile {
-    @apply text-grey-50;
-    @apply bg-brown-400;
+    @apply text-green-200;
+    @apply bg-green-600;
 }
 
 /* Mobile Navigation Styles */
@@ -138,7 +139,7 @@ footer {
     @apply flex;
     @apply flex-col;
     @apply gap-4;
-    @apply px-4;
+    @apply px-8;
     @apply justify-center;
 }
 
@@ -149,7 +150,7 @@ footer {
 /* Active Footer Link Styles */
 .active-desktop,
 .active-footer {
-    @apply text-green50;
+    @apply text-green-200;
 }
 
 

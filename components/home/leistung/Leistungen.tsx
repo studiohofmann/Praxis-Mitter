@@ -21,7 +21,7 @@ export default async function Leistungen() {
     if (!leistungenData) return null
 
     return (
-        <section className='bg-green-300'>
+        <section className='bg-blue-200'>
             <h2>
                 {leistungenData.ueberschrift}
             </h2>
