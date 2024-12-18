@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Raxis Mitter",
+  title: "Praxis Mitter",
   description: "ihre praxis für eine gesunde lebensführung",
 };
 

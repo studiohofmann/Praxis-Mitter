@@ -50,7 +50,7 @@ export default async function Startbild() {
             </div>
             {data.homeData && (
                 <div className="absolute inset-0 pt-16">
-                    <div className='flex flex-col gap-8 items-center justify-center h-full px-8'>
+                    <div className='flex flex-col gap-8 items-center justify-center h-full px-8 md:px-48'>
                         <h1 className='text-center text-green-200'>{data.homeData.ueberschrift}</h1>
                     </div>
                 </div>
