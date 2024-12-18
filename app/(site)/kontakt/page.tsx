@@ -22,13 +22,21 @@ export default async function Kontakt() {
     }
 
     return (
-        <div className='pt-16 flex'>
+        <div className='pt-16'>
             <section>
                 <h2>{kontaktData.ueberschrift}</h2>
-                <PortableText value={kontaktData.text} />
-                <Kontaktforumlar />
+                <div className='flex flex-col md:flex-row gap-8 md:gap-16'>
+                    <div className='flex-1'>
+                        <PortableText value={kontaktData.text} />
+                    </div>
+                    <div className='flex-1'>
+                        <Kontaktforumlar />
+                    </div>
+
+
+                </div>
             </section>
-            <section className='bg-blue-200'>
+            <section className='bg-green-400'>
                 <Anfahrt />
             </section>
         </div>

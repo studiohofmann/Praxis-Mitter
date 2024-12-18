@@ -74,7 +74,7 @@ export default function Navigation() {
             `}
         >
             {/* Main Navigation Content */}
-            <div className='flex justify-between items-center p-4 z-50'>
+            <div className='flex justify-between items-center p-4 md:px-8 z-50'>
                 <div className='z-50'>
                     <Logo onClick={() => setIsMobileMenuOpen(false)} />
                 </div>

@@ -3,6 +3,7 @@ import { SEITEN_QUERY } from '@/sanity/lib/queries';
 import { Seiten } from '@/sanity.types';
 import { PortableText } from '@portabletext/react';
 import Impressuminfo from '@/components/impressum/Impressuminfo';
+import Zertifikateimpressum from '@/components/impressum/Zertifikateimpressum';
 
 async function getData() {
     const allData = await client.fetch(SEITEN_QUERY);
@@ -19,9 +20,16 @@ export default async function Impressum() {
     }
 
     return (
-        <div className='md:flex'>
-            <Impressuminfo />
-            <section>
+        <div className='impressum-page pt-16'>
+            <section className='md:flex-row md:gap-16'>
+                <div className='md:flex-1'>
+                    <Impressuminfo />
+                </div>
+                <div className='md:flex-1'>
+                    <Zertifikateimpressum />
+                </div>
+            </section>
+            <section className='bg-green-400'>
                 <h2>{impressumData.ueberschrift}</h2>
                 <div>
                     <PortableText value={impressumData.text} />

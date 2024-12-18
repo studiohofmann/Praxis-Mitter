@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-    @apply bg-green-200;
-    @apply text-grey-800;
+    @apply bg-green-300;
+    @apply text-grey-900;
 }
 
 h1 {
@@ -15,7 +15,7 @@ h1 {
 
 h2 {
     @apply text-xl;
-    @apply font-semibold;
+    @apply font-bold;
 
 
 }
@@ -36,7 +36,7 @@ a {
 }
 
 section {
-    @apply px-8;
+    @apply px-8 md:px-48;
     @apply py-16;
     @apply flex;
     @apply flex-col;
@@ -95,22 +95,39 @@ textarea::placeholder {
     @apply text-green-200;
 }
 
-footer {
-    @apply text-sm;
-    @apply text-grey-300;
-    @apply bg-blue-700;
-    @apply flex;
-    @apply flex-col;
-    @apply md:grid grid-cols-3;
+.impressum-page a {
+    @apply text-red-700;
+    /* Replace with your desired color */
 }
 
-.footersection {
-    @apply px-4 md:p-8;
-    @apply flex;
-    @apply flex-col;
-    @apply justify-end;
-    @apply gap-8;
+.impressum-page a:hover {
+    @apply text-red-600;
+    /* Optional: Hover color */
 }
+
+footer {
+    @apply text-sm;
+    @apply text-grey-600;
+    @apply bg-grey-900;
+    @apply px-4 md:px-8;
+}
+
+
+footer a {
+    @apply text-grey-600;
+    @apply hover:text-grey-950;
+    @apply transition-all;
+    @apply duration-300;
+    @apply ease-in-out;
+}
+
+footer a.active {
+    @apply text-grey-950;
+    /* Replace with your desired active color */
+    @apply font-semibold;
+    /* Optional: Make the active link bold */
+}
+
 
 /* Mobile Link Styles */
 .mobile-link {
@@ -148,9 +165,13 @@ footer {
 
 /* Active Desktop Link Styles */
 /* Active Footer Link Styles */
-.active-desktop,
-.active-footer {
+.active-desktop {
     @apply text-green-200;
+}
+
+
+.active-footer {
+    @apply text-grey-950;
 }
 
 

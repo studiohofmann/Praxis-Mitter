@@ -15,7 +15,7 @@ async function getData() {
     }
 }
 
-export default async function Zertifikate() {
+export default async function Zertifikateimpressum() {
     const footerData = await getData()
 
     if (!footerData) return null
@@ -26,20 +26,23 @@ export default async function Zertifikate() {
     if (!zertifikateData) return null
 
     return (
-        <div className='footersection py-8 bg-blue-600'>
+        <div className='flex flex-col gap-8'>
             <div>
                 <PortableText value={zertifikateData.text || []} />
             </div>
-            <div className='flex gap-8'>
+            <div className='flex flex-col gap-8'>
                 <a href="https://emr.ch/qualitaetslabel" target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                    className='w-48'>
                     <EmrLogo className="w-full h-full" />
                 </a>
                 <a href="https://nvs.swiss/" target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                    className='w-48'>
                     <NvsLogo className="w-full h-full" />
                 </a>
             </div>
         </div>
+
     )
 }

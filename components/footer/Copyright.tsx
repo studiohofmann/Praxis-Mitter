@@ -28,9 +28,13 @@ export default async function Copyright() {
     if (!copyrightData) return null
 
     return (
-        <div className='flex justify-center'>
-            <span className='mr-1'>{getCurrentYear()}</span>
-            <PortableText value={copyrightData.text || []} />
+        <div className='flex items-end'>
+            <div className='mr-1'>
+                {getCurrentYear()}
+            </div>
+            <div>
+                <PortableText value={copyrightData.text || []} />
+            </div>
         </div>
     )
 }

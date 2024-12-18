@@ -8,12 +8,12 @@ import { HYPERLINKS_QUERY } from '@/sanity/lib/queries';
 import { Seiten } from '@/sanity.types';
 
 interface HyperlinksProps {
+    variant: 'mobile' | 'desktop' | 'footer';
     onLinkClick?: () => void;
-    variant?: 'mobile' | 'desktop' | 'footer';
     isInitialLoad?: boolean;
 }
 
-export default function Hyperlinks({ onLinkClick, variant = 'desktop', isInitialLoad }: HyperlinksProps) {
+export default function Hyperlinks({ variant, onLinkClick, isInitialLoad }: HyperlinksProps) {
     const pathname = usePathname();
     const [seiten, setSeiten] = useState<Seiten[]>([]);
     const [isLoading, setIsLoading] = useState(true);

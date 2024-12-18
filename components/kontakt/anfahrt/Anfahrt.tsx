@@ -23,10 +23,15 @@ export default async function Anfahrt() {
     return (
         <div className='flex flex-col gap-8'>
             <h2>{anfahrtData.ueberschrift}</h2>
-            <div>
-                {anfahrtData.text && <PortableText value={anfahrtData.text} />}
+            <div className='flex flex-col md:flex-row gap-8 md:gap-16'>
+                <div className='flex-1'>
+                    <Map />
+                </div>
+                <div className='flex-1'>
+                    {anfahrtData.text && <PortableText value={anfahrtData.text} />}
+                </div>
             </div>
-            <Map />
         </div>
+
     )
 }

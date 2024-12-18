@@ -21,14 +21,18 @@ export default async function Leistungen() {
     if (!leistungenData) return null
 
     return (
-        <section className='bg-blue-200'>
+        <section className='bg-green-400'>
             <h2>
                 {leistungenData.ueberschrift}
             </h2>
-            <div className="prose max-w-none">
-                {leistungenData.text && <PortableText value={leistungenData.text} />}
+            <div className='flex flex-col gap-8 md:flex-row md:gap-16'>
+                <div className="md:flex-1">
+                    {leistungenData.text && <PortableText value={leistungenData.text} />}
+                </div>
+                <div className="md:flex-1">
+                    <Leistung />
+                </div>
             </div>
-            <Leistung />
         </section>
     )
 }

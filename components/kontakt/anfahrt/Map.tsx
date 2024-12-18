@@ -22,7 +22,7 @@ export default function Map({
 
     const containerStyle = {
         width: '100%',
-        height: '400px', // Fixed height
+        height: '100%',
     };
 
     const options = useMemo(() => ({
@@ -32,19 +32,19 @@ export default function Map({
     }), []);
 
     if (!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY) {
-        return <div className="h-[400px] flex items-center justify-center bg-gray-100">
+        return <div className="h-[400px] flex items-center justify-center">
             Google Maps API key is missing
         </div>;
     }
 
     if (loadError) {
-        return <div className="h-[400px] flex items-center justify-center bg-gray-100">
+        return <div className="h-[400px] flex items-center justify-center">
             Error loading Google Maps: {loadError.message}
         </div>;
     }
 
     return (
-        <div className="overflow-hidden">
+        <div className="overflow-hidden aspect-[4/3]">
             <LoadScript
                 googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}
                 onError={(err) => setLoadError(err)}
