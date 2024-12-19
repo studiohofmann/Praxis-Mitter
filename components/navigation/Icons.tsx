@@ -54,7 +54,7 @@ export default function Icons({ isInitialLoad }: IconsProps) {
         },
         whatsapp: {
             icon: <WhatsAppOutlined className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />,
-            href: (wert: string) => `https://wa.me/+${wert}`
+            href: (wert: string) => `https://wa.me/${wert}`
         },
         instagram: {
             icon: <InstagramFilled className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />,

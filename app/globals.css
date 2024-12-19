@@ -5,6 +5,7 @@
 @font-face {
     font-family: 'Plein';
     src: url('/fonts/Plein-Variable.woff2') format('woff2');
+    src: url('/fonts/Plein-VariableItalic.woff2') format('woff2');
     font-weight: 100 900;
     /* Range of weights available */
     font-style: normal;
@@ -14,6 +15,7 @@
 @font-face {
     font-family: 'Switzer';
     src: url('/fonts/Switzer-Variable.woff2') format('woff2');
+    src: url('/fonts/Switzer-VariableItalic.woff2') format('woff2');
     font-weight: 100 900;
     /* Range of weights available */
     font-style: normal;

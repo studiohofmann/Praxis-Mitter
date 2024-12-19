@@ -9,8 +9,8 @@ export default function Kontaktforumlar() {
     const [state, handleSubmit] = useForm("mbljqkev");
 
     if (state.succeeded) {
-        return <p>Vielen Dank für Ihre Nachricht!
-            Wir werden uns so schnell wie möglich bei Ihnen melden.</p>;
+        return <h3 className="italic">Vielen Dank für Ihre Nachricht!
+            Wir werden uns so schnell wie möglich bei Ihnen melden.</h3>;
     }
 
     return (
