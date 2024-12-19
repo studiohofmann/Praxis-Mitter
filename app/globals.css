@@ -5,27 +5,36 @@
 @font-face {
     font-family: 'Plein';
     src: url('/fonts/Plein-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Plein';
     src: url('/fonts/Plein-VariableItalic.woff2') format('woff2');
     font-weight: 100 900;
-    /* Range of weights available */
-    font-style: normal;
-    /* You can add 'italic' if supported */
+    font-style: italic;
 }
 
 @font-face {
     font-family: 'Switzer';
     src: url('/fonts/Switzer-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Switzer';
     src: url('/fonts/Switzer-VariableItalic.woff2') format('woff2');
     font-weight: 100 900;
-    /* Range of weights available */
-    font-style: normal;
-    /* You can add 'italic' if supported */
+    font-style: italic;
+
 }
 
 body {
     @apply bg-yellow-400;
     @apply text-grey-800;
-    @apply font-normal;
 }
 
 b,
@@ -36,8 +45,9 @@ strong {
 
 h1 {
     @apply text-5xl md:text-6xl;
-    @apply font-bold;
     @apply font-plein;
+    @apply font-bold;
+    @apply italic;
     @apply tracking-wide;
 
 }
@@ -111,10 +121,6 @@ textarea {
     @apply rounded-none;
 }
 
-select:invalid {
-    @apply text-green-300;
-}
-
 button:focus,
 input:focus,
 select:focus,
@@ -124,9 +130,11 @@ textarea:focus {
     @apply rounded-none;
 }
 
+select:invalid,
 input::placeholder,
 textarea::placeholder {
     @apply text-green-300;
+    @apply italic;
 }
 
 .impressum-page a {
