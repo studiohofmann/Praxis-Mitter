@@ -2,20 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Plein';
+    src: url('/fonts/Plein-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    /* Range of weights available */
+    font-style: normal;
+    /* You can add 'italic' if supported */
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('/fonts/Switzer-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    /* Range of weights available */
+    font-style: normal;
+    /* You can add 'italic' if supported */
+}
+
 body {
-    @apply bg-green-300;
-    @apply text-grey-900;
+    @apply bg-yellow-400;
+    @apply text-grey-800;
+    @apply font-normal;
+}
+
+b,
+strong {
+    @apply font-bold;
+    @apply tracking-wide;
 }
 
 h1 {
     @apply text-5xl md:text-6xl;
     @apply font-bold;
+    @apply font-plein;
+    @apply tracking-wide;
 
 }
 
 h2 {
-    @apply text-xl;
+    @apply text-2xl;
     @apply font-bold;
+    @apply font-plein;
+    @apply tracking-wide;
 
 
 }
@@ -27,8 +56,9 @@ h3 {
 }
 
 a {
-    @apply font-bold;
     @apply text-green-300;
+    @apply font-semibold;
+    @apply tracking-wide;
     @apply hover:text-green-200;
     @apply transition-all;
     @apply duration-300;
@@ -44,7 +74,6 @@ section {
 }
 
 button {
-    @apply font-bold;
     @apply bg-green-500;
     @apply hover:bg-green-600;
     @apply text-green-300;
@@ -65,38 +94,41 @@ button {
 .inputcontainer {
     @apply flex;
     @apply flex-col;
+    @apply outline-none;
     @apply rounded-none;
 }
 
 input,
 select,
 textarea {
-    @apply bg-green-400;
+    @apply bg-red-500;
     @apply py-4;
     @apply px-8;
     @apply appearance-none;
+    @apply outline-none;
+    @apply rounded-none;
 }
 
 select:invalid {
-    @apply text-green-200;
+    @apply text-green-300;
 }
 
 button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    @apply bg-green-300;
+    @apply bg-red-400;
     @apply outline-none;
     @apply rounded-none;
 }
 
 input::placeholder,
 textarea::placeholder {
-    @apply text-green-200;
+    @apply text-green-300;
 }
 
 .impressum-page a {
-    @apply text-red-700;
+    @apply text-red-500;
     /* Replace with your desired color */
 }
 
@@ -106,26 +138,23 @@ textarea::placeholder {
 }
 
 footer {
+    @apply bg-grey-800;
     @apply text-sm;
     @apply text-grey-600;
-    @apply bg-grey-900;
     @apply px-4 md:px-8;
 }
 
 
 footer a {
     @apply text-grey-600;
-    @apply hover:text-grey-950;
+    @apply hover:text-grey-500;
     @apply transition-all;
     @apply duration-300;
     @apply ease-in-out;
 }
 
 footer a.active {
-    @apply text-grey-950;
-    /* Replace with your desired active color */
-    @apply font-semibold;
-    /* Optional: Make the active link bold */
+    @apply text-grey-500;
 }
 
 
@@ -171,7 +200,7 @@ footer a.active {
 
 
 .active-footer {
-    @apply text-grey-950;
+    @apply text-grey-500;
 }
 
 

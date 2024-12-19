@@ -20,7 +20,7 @@ export default async function Leistung() {
 
     return (
 
-        <ul className="list-disc pl-5 space-y-2">
+        <ul className="list-disc pl-4 space-y-4">
             {leistungen.map((leistung, index) => (
                 <li key={index}>
                     <h3>

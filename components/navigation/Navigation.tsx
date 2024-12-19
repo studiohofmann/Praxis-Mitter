@@ -9,29 +9,27 @@ import Logo from './Logo'
 
 export default function Navigation() {
     const pathname = usePathname()
-    const isHomePage = pathname === '/';
-    const [isInitialLoad, setIsInitialLoad] = useState(isHomePage);
-
+    const isHomePage = pathname === '/'; // Check if the current page is the homepage
+    const [isInitialLoad, setIsInitialLoad] = useState(isHomePage); // Initial load should be true on the homepage
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
-    const [isBackgroundVisible, setIsBackgroundVisible] = useState(!isHomePage)
+    const [isBackgroundVisible, setIsBackgroundVisible] = useState(!isHomePage) // Background is visible only after homepage
 
     useEffect(() => {
-        if (!isHomePage) return; // Only run this effect on the homepage
-
+        // Only apply the scroll behavior to all pages, not just homepage
         const handleScroll = () => {
             const currentScrollPos = window.scrollY
-            setIsInitialLoad(false); // User has scrolled
+            setIsInitialLoad(false); // Set to false after the initial load
             setIsBackgroundVisible(true)
-            setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10)
+            setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10) // Hide menu on scroll down
             setPrevScrollPos(currentScrollPos)
         }
 
         const handleClick = () => {
-            setIsInitialLoad(false); // User has clicked
+            setIsInitialLoad(false); // User has clicked, menu should remain visible
             setIsBackgroundVisible(true)
-            setVisible(true)
+            setVisible(true) // Keep menu visible on click
         }
 
         window.addEventListener('scroll', handleScroll)
@@ -41,9 +39,10 @@ export default function Navigation() {
             window.removeEventListener('scroll', handleScroll)
             window.removeEventListener('click', handleClick)
         }
-    }, [prevScrollPos, isHomePage])
+    }, [prevScrollPos]) // Depend on scroll position, not homepage
 
     useEffect(() => {
+        // Adjust body overflow and padding when mobile menu is open
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
 
         if (isMobileMenuOpen) {
@@ -66,10 +65,10 @@ export default function Navigation() {
                 fixed w-full top-0 transition-all duration-300 z-40
                 ${visible ? 'translate-y-0' : '-translate-y-full'}
                 ${isInitialLoad
-                    ? 'bg-transparent text-white'
+                    ? 'bg-transparent text-white' // Homepage initial load styles
                     : isBackgroundVisible
-                        ? 'bg-green-500 text-black'
-                        : 'bg-transparent text-black'
+                        ? 'bg-green-500 text-black' // After scroll, the background turns green
+                        : 'bg-transparent text-black' // Background turns transparent after scroll
                 }
             `}
         >
