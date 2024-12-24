@@ -47,7 +47,6 @@ h1 {
     @apply text-5xl md:text-6xl;
     @apply font-plein;
     @apply font-bold;
-    @apply italic;
     @apply tracking-wide;
 
 }
@@ -113,7 +112,7 @@ button {
 input,
 select,
 textarea {
-    @apply bg-red-500;
+    @apply bg-grey-700;
     @apply py-4;
     @apply px-8;
     @apply appearance-none;
@@ -125,7 +124,8 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    @apply bg-red-400;
+    @apply bg-grey-500;
+    @apply text-green-100;
     @apply outline-none;
     @apply rounded-none;
 }
@@ -134,7 +134,6 @@ select:invalid,
 input::placeholder,
 textarea::placeholder {
     @apply text-green-300;
-    @apply italic;
 }
 
 .impressum-page a {
