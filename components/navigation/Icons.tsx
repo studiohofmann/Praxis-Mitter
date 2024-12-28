@@ -53,7 +53,11 @@ export default function Icons({ isInitialLoad }: IconsProps) {
         },
         whatsapp: {
             icon: <WhatsAppOutlined className={`text-xl ${isInitialLoad ? 'text-green-100' : ''}`} />,
-            href: (wert: string) => `https://wa.me/${wert}`,
+            href: (wert: string) => {
+                const cleanNumber = wert.replace(/[\s\-\(\)\+]/g, '');
+                console.log('WhatsApp number:', cleanNumber);
+                return `https://wa.me/${cleanNumber}`;
+            },
             target: '_blank', // Open in a new tab
             rel: 'noopener noreferrer',
         },
