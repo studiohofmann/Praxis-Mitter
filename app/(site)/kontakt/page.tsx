@@ -36,7 +36,7 @@ export default async function Kontakt() {
 
                 </div>
             </section>
-            <section className='bg-green-400'>
+            <section className='bg-green-300'>
                 <Anfahrt />
             </section>
         </div>

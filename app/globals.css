@@ -33,7 +33,7 @@
 }
 
 body {
-    @apply bg-yellow-400;
+    @apply bg-yellow-300;
     @apply text-grey-800;
 }
 
@@ -67,10 +67,10 @@ h3 {
 }
 
 a {
-    @apply text-green-300;
+    @apply text-green-100;
     @apply font-semibold;
     @apply tracking-wide;
-    @apply hover:text-green-200;
+    @apply hover:text-green-50;
     @apply transition-all;
     @apply duration-300;
     @apply ease-in-out;
@@ -86,9 +86,9 @@ section {
 
 button {
     @apply bg-green-500;
-    @apply hover:bg-green-600;
-    @apply text-green-300;
-    @apply hover:text-green-200;
+    @apply hover:bg-green-400;
+    @apply text-green-100;
+    @apply hover:text-green-50;
     @apply w-full;
     @apply py-4;
     @apply px-8;
@@ -112,7 +112,7 @@ button {
 input,
 select,
 textarea {
-    @apply bg-grey-700;
+    @apply bg-yellow-200;
     @apply py-4;
     @apply px-8;
     @apply appearance-none;
@@ -124,8 +124,7 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    @apply bg-grey-500;
-    @apply text-green-100;
+    @apply bg-yellow-100;
     @apply outline-none;
     @apply rounded-none;
 }
@@ -133,44 +132,46 @@ textarea:focus {
 select:invalid,
 input::placeholder,
 textarea::placeholder {
-    @apply text-green-300;
+    @apply text-yellow-400;
 }
 
 .impressum-page a {
-    @apply text-red-500;
+    @apply text-green-500;
     /* Replace with your desired color */
 }
 
 .impressum-page a:hover {
-    @apply text-red-600;
+    @apply text-green-600;
     /* Optional: Hover color */
 }
 
 footer {
-    @apply bg-grey-800;
+    @apply bg-green-700;
     @apply text-sm;
-    @apply text-grey-600;
+    @apply text-green-500;
     @apply px-4 md:px-8;
 }
 
 
 footer a {
-    @apply text-grey-600;
-    @apply hover:text-grey-500;
+    @apply text-green-500;
+    @apply hover:text-green-400;
     @apply transition-all;
     @apply duration-300;
     @apply ease-in-out;
 }
 
 footer a.active {
-    @apply text-grey-500;
+    @apply text-green-400;
 }
 
 
 /* Mobile Link Styles */
 .mobile-link {
     @apply bg-green-500;
-    @apply hover:bg-green-600;
+    @apply hover:bg-green-400;
+    @apply text-green-100;
+    @apply hover:text-green-50;
     @apply px-8;
     @apply py-4;
     @apply flex;
@@ -179,13 +180,13 @@ footer a.active {
 }
 
 .active {
-    @apply text-green-200;
+    @apply text-green-50;
 }
 
 /* Active Mobile Link Styles */
 .active-mobile {
-    @apply text-green-200;
-    @apply bg-green-600;
+    @apply text-green-50;
+    @apply bg-green-400;
 }
 
 /* Mobile Navigation Styles */
@@ -199,17 +200,19 @@ footer a.active {
 }
 
 /* Desktop Link Styles */
-.desktop-link {}
+.desktop-link {
+    @apply text-green-100;
+}
 
 /* Active Desktop Link Styles */
 /* Active Footer Link Styles */
 .active-desktop {
-    @apply text-green-200;
+    @apply text-green-50;
 }
 
 
 .active-footer {
-    @apply text-grey-500;
+    @apply text-green-300;
 }
 
 

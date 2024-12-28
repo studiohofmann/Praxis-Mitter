@@ -6,7 +6,7 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import React from 'react';
 
 export default function Kontaktforumlar() {
-    const [state, handleSubmit] = useForm("mbljqkev");
+    const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM_ID || '');
 
     if (state.succeeded) {
         return <h3 className="italic">Vielen Dank für Ihre Nachricht!

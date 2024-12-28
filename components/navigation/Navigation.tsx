@@ -65,7 +65,7 @@ export default function Navigation() {
                 fixed w-full top-0 transition-all duration-300 z-40
                 ${visible ? 'translate-y-0' : '-translate-y-full'}
                 ${isInitialLoad
-                    ? 'bg-transparent text-white' // Homepage initial load styles
+                    ? 'bg-transparent text-green-100' // Homepage initial load styles
                     : isBackgroundVisible
                         ? 'bg-green-500 text-black' // After scroll, the background turns green
                         : 'bg-transparent text-black' // Background turns transparent after scroll
@@ -94,11 +94,11 @@ export default function Navigation() {
                     >
                         {isMobileMenuOpen ? (
                             <a>
-                                <CloseOutlined className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />
+                                <CloseOutlined className={`text-xl ${isInitialLoad ? 'text-green-100' : ''}`} />
                             </a>
                         ) : (
                             <a>
-                                <MenuOutlined className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />
+                                <MenuOutlined className={`text-xl ${isInitialLoad ? 'text-green-100' : ''}`} />
                             </a>
                         )}
                     </div>

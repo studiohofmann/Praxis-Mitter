@@ -43,22 +43,22 @@ export default function Icons({ isInitialLoad }: IconsProps) {
 
     const iconConfig: { [key in IconData['name']]: { icon: JSX.Element; href: (wert: string) => string; target?: string; rel?: string } } = {
         anruf: {
-            icon: <PhoneFilled className={`text-xl rotate-90 ${isInitialLoad ? 'text-green-200' : ''}`} />,
+            icon: <PhoneFilled className={`text-xl rotate-90 ${isInitialLoad ? 'text-green-100' : ''}`} />,
             href: (wert: string) => `tel:${wert}`,
         },
         email: {
-            icon: <MailFilled className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />,
+            icon: <MailFilled className={`text-xl ${isInitialLoad ? 'text-green-100' : ''}`} />,
             href: (wert: string) => `mailto:${wert}`,
             target: '_self', // Open in the same tab
         },
         whatsapp: {
-            icon: <WhatsAppOutlined className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />,
+            icon: <WhatsAppOutlined className={`text-xl ${isInitialLoad ? 'text-green-100' : ''}`} />,
             href: (wert: string) => `https://wa.me/${wert}`,
             target: '_blank', // Open in a new tab
             rel: 'noopener noreferrer',
         },
         instagram: {
-            icon: <InstagramFilled className={`text-xl ${isInitialLoad ? 'text-green-200' : ''}`} />,
+            icon: <InstagramFilled className={`text-xl ${isInitialLoad ? 'text-green-100' : ''}`} />,
             href: (wert: string) => `https://www.instagram.com/${wert}`,
             target: '_blank', // Open in a new tab
             rel: 'noopener noreferrer',

@@ -29,7 +29,7 @@ export default async function Impressum() {
                     <Zertifikateimpressum />
                 </div>
             </section>
-            <section className='bg-green-400'>
+            <section className='bg-green-300'>
                 <h2>{impressumData.ueberschrift}</h2>
                 <div>
                     <PortableText value={impressumData.text} />
