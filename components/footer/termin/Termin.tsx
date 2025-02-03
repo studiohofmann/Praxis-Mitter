@@ -20,7 +20,7 @@ export default async function Termin() {
     if (!terminData) return null
 
     return (
-        <div className='footersection px-4 py-16 md:px-48 bg-green-600'>
+        <div className='footersection px-4 py-16 md:px-48 bg-green-400'>
             <div className='flex flex-col md:flex-row gap-8 md:gap-16'>
                 <div className='md:flex-1 text-green-100'>
                     <PortableText value={terminData.text || []} />

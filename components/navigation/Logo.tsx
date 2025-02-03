@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import LogoFile from '../../public/logo-norway400.svg'
+import LogoFile from '../../public/logo.svg'
 
 interface LogoProps {
     onClick?: () => void;

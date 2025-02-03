@@ -48,8 +48,7 @@ export default function Icons({ isInitialLoad }: IconsProps) {
         },
         email: {
             icon: <MailFilled className={`text-xl ${isInitialLoad ? 'text-green-100' : ''}`} />,
-            href: (wert: string) => `mailto:${wert}`,
-            target: '_self', // Open in the same tab
+            href: (wert: string) => `mailto:${wert}?subject=Anfrage`,
         },
         whatsapp: {
             icon: <WhatsAppOutlined className={`text-xl ${isInitialLoad ? 'text-green-100' : ''}`} />,
